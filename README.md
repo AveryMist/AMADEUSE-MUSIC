@@ -22,7 +22,7 @@
 
 ![Android](https://img.shields.io/badge/Android-5.0+-4CAF50?style=for-the-badge&logo=android&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-10+-0078D4?style=for-the-badge&logo=windows&logoColor=white)
-![Version](https://img.shields.io/badge/Version-Alpha_0.1-5c64f4?style=for-the-badge&logo=github&logoColor=white)
+![Version](https://img.shields.io/badge/Version-1.0.0-5c64f4?style=for-the-badge&logo=github&logoColor=white)
 ![License](https://img.shields.io/badge/License-GPL--3.0-FF6B6B?style=for-the-badge&logo=gnu&logoColor=white)
 
 ![Page Views](https://komarev.com/ghpvc/?username=AveryMist&repo=AMADEUSE-MUSIC&color=5c64f4&style=for-the-badge&label=Page+Views)
