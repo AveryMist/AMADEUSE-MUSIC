@@ -1,5 +1,3 @@
-# 📝 Historique des Versions - AMADEUSE MUSIC
-
 ## 🎵 Version 1.0.2 - Juillet 2025 (Version Actuelle)
 
 ### ✨ **Nouvelles Fonctionnalités**
