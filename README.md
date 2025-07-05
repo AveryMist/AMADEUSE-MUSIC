@@ -236,7 +236,6 @@ Lecteur adapté
 - ✅ Lecture en arrière-plan
 - ✅ Contrôle de la qualité de streaming
 - ✅ Téléchargement pour écoute hors ligne
-- ✅ Support des langues multiples
 - ✅ Skip automatique des silences
 
 ### **🎨 Interface & Design**
@@ -260,6 +259,13 @@ Lecteur adapté
 - ✅ Import via partage YouTube/YouTube Music
 - ✅ Synchronisation multi-appareils
 - ✅ Sauvegarde automatique des préférences
+
+### **🌍 Langues Supportées (50 langues)**
+**Européennes :** Français, Anglais, Espagnol, Allemand, Italien, Portugais, Russe, Néerlandais, Polonais, Tchèque, Roumain, Hongrois, Bulgare, Slovaque, Serbe, Suédois, Norvégien, Finnois, Estonien, Galicien, Basque, Catalan, Ukrainien, Irlandais
+
+**Asiatiques :** Chinois (Simplifié), Chinois (Traditionnel), Japonais, Coréen, Hindi, Bengali, Tamoul, Télougou, Malayalam, Kannada, Odia, Pendjabi, Ourdou, Vietnamien, Indonésien, Birman
+
+**Autres :** Arabe, Persan, Turc, Azerbaïdjanais, Hébreu, Espéranto, Interlingua, Fidjien, Filipino
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
@@ -371,3 +377,44 @@ to your preferences
 </table>
 
 </div>
+
+## 🌍 **Supported Languages (50 languages)**
+
+**European:** French, English, Spanish, German, Italian, Portuguese, Russian, Dutch, Polish, Czech, Romanian, Hungarian, Bulgarian, Slovak, Serbian, Swedish, Norwegian, Finnish, Estonian, Galician, Basque, Catalan, Ukrainian, Irish
+
+**Asian:** Chinese (Simplified), Chinese (Traditional), Japanese, Korean, Hindi, Bengali, Tamil, Telugu, Malayalam, Kannada, Odia, Punjabi, Urdu, Vietnamese, Indonesian, Burmese
+
+**Others:** Arabic, Persian, Turkish, Azerbaijani, Hebrew, Esperanto, Interlingua, Fijian, Filipino
+
+## 🎵 **Complete Features**
+
+### **🎵 Playback & Streaming**
+- ✅ YouTube & YouTube Music streaming
+- ✅ Smart caching during playback
+- ✅ Integrated radio support
+- ✅ Background playback
+- ✅ Streaming quality control
+- ✅ Download for offline listening
+- ✅ Automatic silence skipping
+
+### **🎨 Interface & Design**
+- ✅ Material You Design
+- ✅ Adaptive dynamic theme
+- ✅ Flexible navigation (bottom/side)
+- ✅ Multi-screen optimized interface
+- ✅ Android Auto support
+- ✅ Synchronized and plain lyrics
+
+### **🎛️ Audio & Customization**
+- ✅ Built-in equalizer
+- ✅ Sleep Timer
+- ✅ No advertisements
+- ✅ No login required
+- ✅ Piped playlist integration
+
+### **📱 Management & Organization**
+- ✅ Playlist creation
+- ✅ Artist & album favorites
+- ✅ Import via YouTube/YouTube Music sharing
+- ✅ Multi-device synchronization
+- ✅ Automatic preference backup
