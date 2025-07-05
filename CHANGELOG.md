@@ -1,6 +1,4 @@
-# 📝 Historique des Versions - AMADEUSE MUSIC
-
-## 🎵 Version 1.0.2 - Juillet 2025 (Version Actuelle)
+## 🎵 Version 1.0.3 - Juillet 2025 (Version Actuelle)
 
 ### ✨ **Nouvelles Fonctionnalités**
 * **🎨 Logo unifié arrondi** - Nouveau logo AMADEUSE MUSIC avec coins arrondis sur toutes les plateformes (PC + Mobile)
