@@ -1,0 +1,21 @@
+{
+    "songs": "গান সমূহ",
+    "home": "হোম",
+    "playlists": "প্লেলিস্ট",
+    "albums": "অ্যালবাম সমূহ",
+    "singles": "সিঙ্গেল সমূহ",
+    "library": "লাইব্রেরি",
+    "artists": "শিল্পী",
+    "settings": "সেটিংস",
+    "downloads": "ডাউনলোড সমূহ",
+    "album": "অ্যালবাম",
+    "favorites": "পছন্দ সমূহ",
+    "add5Minutes": "৫ মিনিট যোগ করুন",
+    "upNext": "পরবর্তী গান",
+    "items": "আইটেম সমূহ",
+    "shareSong": "শেয়ার করুন",
+    "cancel": "বাতিল",
+    "noOfflineSong": "কোনো অফলাইন গান নেই!",
+    "playingfromAlbum": "অ্যালবাম হতে বাজানো হচ্ছে",
+    "playingfromPlaylist": "প্লেলিস্ট হতে বাজানো হচ্ছে"
+}

@@ -1,0 +1,35 @@
+{
+    "name": "AMADEUSE MUSIC",
+    "short_name": "AMADEUSE MUSIC",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#5865F2",
+    "theme_color": "#5865F2",
+    "description": "AMADEUSE MUSIC - Application de streaming musical",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
