@@ -19,9 +19,25 @@ workflows:
       - name: Install dependencies
         script: |
           flutter packages pub get
+      - name: Create export options plist
+        script: |
+          cat > /tmp/export_options.plist <<EOL
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>method</key>
+              <string>app-store</string>
+              <key>uploadBitcode</key>
+              <true/>
+              <key>uploadSymbols</key>
+              <true/>
+          </dict>
+          </plist>
+          EOL
       - name: Build ipa for App Store
         script: |
-          flutter build ipa --release --export-options-plist=$CM_EXPORT_OPTIONS_PATH
+          flutter build ipa --release --export-options-plist=/tmp/export_options.plist
     artifacts:
       - build/ios/ipa/*.ipa
       - $HOME/Library/Developer/Xcode/DerivedData/**/Logs/Build/*.log
