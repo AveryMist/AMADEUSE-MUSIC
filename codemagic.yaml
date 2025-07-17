@@ -1,0 +1,35 @@
+workflows:
+  ios-app:
+    name: iOS App
+    instance_type: mac_mini_m1
+    max_build_duration: 120
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Set up keychain
+        script: |
+          keychain initialize
+      - name: Set up code signing
+        script: |
+          app-store-connect fetch-signing-files "$(xcode-project list-bundle-ids | head -n 1)" --type IOS_APP_STORE --create
+          keychain add-certificates
+          xcode-project use-profiles
+      - name: Install dependencies
+        script: |
+          flutter packages pub get
+      - name: Build ipa for App Store
+        script: |
+          flutter build ipa --release --export-options-plist=$CM_EXPORT_OPTIONS_PATH
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Logs/Build/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Logs/Test/*.log
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_API_KEY
+        # You can find the issuer ID in App Store Connect > Users and Access > Keys
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        # You can find the key ID in App Store Connect > Users and Access > Keys
+        key_id: $APP_STORE_CONNECT_KEY_ID
