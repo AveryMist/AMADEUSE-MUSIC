@@ -1,6 +1,6 @@
 workflows:
   ios-app:
-    name: iOS App
+    name: Amadeuse Music iOS
     instance_type: mac_mini_m1
     max_build_duration: 120
     environment:
