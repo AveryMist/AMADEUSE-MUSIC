@@ -11,21 +11,15 @@ workflows:
       - name: Install dependencies
         script: |
           flutter packages pub get
-      - name: Set up keychain
+      - name: Build unsigned IPA
         script: |
-          keychain initialize
-      - name: Fetch signing files
-        script: |
-          app-store-connect fetch-signing-files "com.amadeuse.music" --type IOS_APP_DEVELOPMENT --create
-      - name: Set up code signing
-        script: |
-          keychain add-certificates
-          xcode-project use-profiles
-      - name: Build IPA
-        script: |
-          flutter build ipa --export-method development
+          flutter build ios --release --no-codesign
+          mkdir -p build/ios/Payload
+          cp -r build/ios/iphoneos/Runner.app build/ios/Payload/Runner.app
+          cd build/ios
+          zip -r AmadeuseMusic.ipa Payload
     artifacts:
-      - build/ios/ipa/*.ipa
+      - build/ios/AmadeuseMusic.ipa
       - $HOME/Library/Developer/Xcode/DerivedData/**/Logs/Build/*.log
       - $HOME/Library/Developer/Xcode/DerivedData/**/Logs/Test/*.log
     publishing:
