@@ -24,6 +24,9 @@ class ThemeController extends GetxController {
     primaryColor.value =
         Color(Hive.box('appPrefs').get("themePrimaryColor") ?? 4278199603);
 
+    // Initialiser avec un thème par défaut pour éviter les valeurs null
+    themedata.value = _createThemeData(null, ThemeType.dark);
+
     changeThemeModeType(
         ThemeType.values[Hive.box('appPrefs').get("themeModeType") ?? 0]);
 
@@ -50,13 +53,15 @@ class ThemeController extends GetxController {
               ? ThemeType.light
               : ThemeType.dark);
     } else {
-      if (sysCall) return;
+      // Supprimer la condition sysCall pour forcer la mise à jour
       themedata.value = _createThemeData(
           value == ThemeType.dynamic
               ? _createMaterialColor(primaryColor.value!)
               : null,
           value);
     }
+    // Forcer la mise à jour de l'interface
+    themedata.refresh();
     setWindowsTitleBarColor(themedata.value!.scaffoldBackgroundColor);
   }
 
@@ -65,7 +70,6 @@ class ThemeController extends GetxController {
     PaletteGenerator generator = await PaletteGenerator.fromImageProvider(
         ResizeImage(imageProvider, height: 200, width: 200));
 
-    // Enhanced color extraction for better visual effects
     final paletteColor = generator.dominantColor ??
         generator.darkMutedColor ??
         generator.darkVibrantColor ??
@@ -77,9 +81,7 @@ class ThemeController extends GetxController {
     primaryColor.value = paletteColor.color;
     textColor.value = paletteColor.bodyTextColor;
 
-    // Enhanced color processing for PC version
     if (GetPlatform.isDesktop) {
-      // More vibrant colors for desktop
       final hsl = HSLColor.fromColor(paletteColor.color);
       primaryColor.value = hsl.withSaturation(
         (hsl.saturation * 1.2).clamp(0.0, 1.0)
@@ -87,30 +89,28 @@ class ThemeController extends GetxController {
         hsl.lightness < 0.5 ? 0.15 : hsl.lightness * 0.8
       ).toColor();
     } else {
-      // Original mobile logic
       if (paletteColor.color.computeLuminance() > 0.10) {
         primaryColor.value = paletteColor.color.withLightness(0.10);
         textColor.value = Colors.white54;
       }
     }
 
-    final primarySwatch = _createMaterialColor(primaryColor.value!);
+    final MaterialColor primarySwatch = _createMaterialColor(primaryColor.value!);
     themedata.value = _createThemeData(primarySwatch, ThemeType.dynamic,
         textColor: textColor.value,
         titleColorSwatch: _createMaterialColor(textColor.value));
     currentSongId = songId;
     Hive.box('appPrefs').put("themePrimaryColor", (primaryColor.value!).value);
+    // Forcer la mise à jour de l'interface
+    themedata.refresh();
     setWindowsTitleBarColor(themedata.value!.scaffoldBackgroundColor);
 
-    // Add visual feedback for desktop
     if (GetPlatform.isDesktop) {
       _triggerColorChangeAnimation();
     }
   }
 
   void _triggerColorChangeAnimation() {
-    // This will be used by UI components to trigger animations
-    // when colors change on desktop
     printINFO("Color theme changed - triggering desktop animations");
   }
 
@@ -130,68 +130,66 @@ class ThemeController extends GetxController {
 
       final baseTheme = ThemeData(
           useMaterial3: false,
-          primaryColor: primarySwatch![500],
-          colorScheme: ColorScheme.fromSwatch(
-              accentColor: primarySwatch[200],
-              brightness: Brightness.dark,
-              backgroundColor: primarySwatch[700],
-              primarySwatch: primarySwatch),
-          dialogBackgroundColor: primarySwatch[700],
-          cardColor: primarySwatch[600],
-          primaryColorLight: primarySwatch[400],
-          primaryColorDark: primarySwatch[700],
-          canvasColor: primarySwatch[700],
+          brightness: Brightness.dark,
+          colorScheme: primarySwatch != null 
+              ? ColorScheme.fromSwatch(
+                  primarySwatch: primarySwatch,
+                  brightness: Brightness.dark)
+              : const ColorScheme.dark(),
+          dialogBackgroundColor: primarySwatch?[700] ?? Colors.black,
+          cardColor: primarySwatch?[600] ?? Colors.grey[800],
+          primaryColorLight: primarySwatch?[400] ?? Colors.deepPurple,
+          primaryColorDark: primarySwatch?[700] ?? Colors.black,
+          canvasColor: primarySwatch?[700] ?? Colors.black,
           bottomSheetTheme: BottomSheetThemeData(
-              backgroundColor: primarySwatch[600],
-              modalBarrierColor: primarySwatch[400]),
+              backgroundColor: primarySwatch?[600] ?? Colors.grey[800],
+              modalBarrierColor: primarySwatch?[400] ?? Colors.deepPurple),
           textTheme: TextTheme(
             titleLarge: const TextStyle(
                 fontSize: 23, fontWeight: FontWeight.bold, color: Colors.white),
             titleMedium: const TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.white),
-            titleSmall: TextStyle(color: primarySwatch[100]),
-            bodyMedium: TextStyle(color: primarySwatch[100]),
+            titleSmall: TextStyle(color: primarySwatch?[100] ?? Colors.white),
+            bodyMedium: TextStyle(color: primarySwatch?[100] ?? Colors.white),
             labelMedium: TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 23,
-                color: textColor ?? primarySwatch[50]),
+                color: textColor ?? primarySwatch?[50] ?? Colors.white),
             labelSmall: TextStyle(
                 fontSize: 15,
-                color: titleColorSwatch != null
-                    ? titleColorSwatch[900]
-                    : primarySwatch[100],
+                color: titleColorSwatch?[900] ?? primarySwatch?[100] ?? Colors.white,
                 letterSpacing: 0,
                 fontWeight: FontWeight.bold),
           ),
           indicatorColor: Colors.white,
           progressIndicatorTheme: ProgressIndicatorThemeData(
-              linearTrackColor: (primarySwatch[300])!.computeLuminance() > 0.3
+              linearTrackColor: (primarySwatch?[300] ?? Colors.deepPurple).computeLuminance() > 0.3
                   ? Colors.black54
                   : Colors.white70,
               color: textColor),
           navigationRailTheme: NavigationRailThemeData(
-              backgroundColor: primarySwatch[700],
+              backgroundColor: primarySwatch?[700] ?? Colors.black,
               selectedIconTheme: const IconThemeData(color: Colors.white),
-              unselectedIconTheme: IconThemeData(color: primarySwatch[100]),
+              unselectedIconTheme: IconThemeData(color: primarySwatch?[100] ?? Colors.white),
               selectedLabelTextStyle: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 15),
               unselectedLabelTextStyle: TextStyle(
-                  color: primarySwatch[100], fontWeight: FontWeight.bold)),
+                  color: primarySwatch?[100] ?? Colors.white, fontWeight: FontWeight.bold)),
           sliderTheme: SliderThemeData(
-            inactiveTrackColor: primarySwatch[300],
+            inactiveTrackColor: primarySwatch?[300] ?? Colors.grey,
             activeTrackColor: textColor,
-            valueIndicatorColor: primarySwatch[400],
+            valueIndicatorColor: primarySwatch?[400] ?? Colors.deepPurple,
             thumbColor: Colors.white,
           ),
           textSelectionTheme: TextSelectionThemeData(
-              cursorColor: primarySwatch[200],
-              selectionColor: primarySwatch[200],
-              selectionHandleColor: primarySwatch[200])
+              cursorColor: primarySwatch?[200] ?? Colors.white,
+              selectionColor: primarySwatch?[200] ?? Colors.white,
+              selectionHandleColor: primarySwatch?[200] ?? Colors.white)
           );
       
-      Color buttonBackground = primarySwatch[500]!;
+      Color buttonBackground = primarySwatch?[500] ?? Colors.deepPurple;
       Color buttonForeground = buttonBackground.computeLuminance() > 0.5 ? Colors.black : Colors.white;
       Color buttonBorder = buttonForeground.withOpacity(0.5);
       return baseTheme.copyWith(
@@ -204,13 +202,9 @@ class ThemeController extends GetxController {
               shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
             ),
           ),
-          textButtonTheme: TextButtonThemeData(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(buttonForeground),
-              side: MaterialStateProperty.all(BorderSide(color: buttonBorder, width: 1)),
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
-            ),
-          ),
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+              backgroundColor: primarySwatch?[700] ?? Colors.black,
+              foregroundColor: textColor ?? Colors.white),
       );
     } else if (themeType == ThemeType.dark) {
       SystemChrome.setSystemUIOverlayStyle(
@@ -265,11 +259,8 @@ class ThemeController extends GetxController {
           bottomSheetTheme: const BottomSheetThemeData(
               backgroundColor: Colors.black, modalBarrierColor: Colors.black),
           sliderTheme: const SliderThemeData(
-            //base bar color
             inactiveTrackColor: Colors.white30,
-            //buffered progress
             activeTrackColor: Colors.white,
-            //progress bar color
             valueIndicatorColor: Colors.black38,
             thumbColor: Colors.white,
           ),
@@ -280,7 +271,10 @@ class ThemeController extends GetxController {
           inputDecorationTheme: const InputDecorationTheme(
               focusColor: Colors.white,
               focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white))));
+                  borderSide: BorderSide(color: Colors.white))),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.white));
       return baseTheme.copyWith(
           textTheme: GoogleFonts.interTextTheme(baseTheme.textTheme));
     } else {
@@ -300,8 +294,6 @@ class ThemeController extends GetxController {
           canvasColor: Colors.white,
           colorScheme: ColorScheme.fromSwatch(
               accentColor: Colors.grey[400],
-              backgroundColor: Colors.white,
-              cardColor: Colors.white,
               brightness: Brightness.light),
           primaryColor: Colors.white,
           primaryColorLight: Colors.grey[300],
@@ -336,11 +328,8 @@ class ThemeController extends GetxController {
           bottomSheetTheme: const BottomSheetThemeData(
               backgroundColor: Colors.white, modalBarrierColor: Colors.white),
           sliderTheme: SliderThemeData(
-            //base bar color
             inactiveTrackColor: Colors.black38,
-            //buffered progress
             activeTrackColor: Colors.grey[800],
-            //progress bar color
             valueIndicatorColor: Colors.white38,
             thumbColor: Colors.grey[800],
           ),
@@ -352,7 +341,10 @@ class ThemeController extends GetxController {
           inputDecorationTheme: const InputDecorationTheme(
               focusColor: Colors.black,
               focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black))));
+                  borderSide: BorderSide(color: Colors.black))),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black));
       return baseTheme.copyWith(
           textTheme: GoogleFonts.interTextTheme(baseTheme.textTheme));
     }
@@ -381,7 +373,7 @@ class ThemeController extends GetxController {
   Future<void> setWindowsTitleBarColor(Color color) async {
     if (!GetPlatform.isWindows) return;
     try {
-      Future.delayed(
+      await Future.delayed(
           const Duration(milliseconds: 350),
           () async => await platform.invokeMethod('setTitleBarColor', {
                 'r': color.red,
@@ -421,7 +413,6 @@ extension ColorWithHSL on Color {
 }
 
 extension HexColor on Color {
-  /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();
     if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
@@ -429,7 +420,6 @@ extension HexColor on Color {
     return Color(int.parse(buffer.toString(), radix: 16));
   }
 
-  /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
   String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
       '${alpha.toRadixString(16).padLeft(2, '0')}'
       '${red.toRadixString(16).padLeft(2, '0')}'

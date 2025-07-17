@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as material;
 import 'package:get/get.dart';
 import 'package:harmonymusic/ui/player/components/backgroud_image.dart';
 import 'package:harmonymusic/ui/player/components/lyrics_widget.dart';
@@ -14,18 +14,18 @@ import '../../widgets/songinfo_bottom_sheet.dart';
 import '../../utils/theme_controller.dart';
 import '../player_controller.dart';
 
-class GesturePlayer extends StatelessWidget {
+class GesturePlayer extends material.StatelessWidget {
   const GesturePlayer({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  material.Widget build(material.BuildContext context) {
     final PlayerController playerController = Get.find<PlayerController>();
-    return Stack(
+    return material.Stack(
       children: [
-        GestureDetector(
+        material.GestureDetector(
           /// Full screen Background image is acting as album art
           child: const BackgroudImage(),
-          onHorizontalDragEnd: (DragEndDetails details) {
+          onHorizontalDragEnd: (material.DragEndDetails details) {
             if (details.primaryVelocity! < 0) {
               playerController.next();
             } else if (details.primaryVelocity! > 0) {
@@ -36,14 +36,14 @@ class GesturePlayer extends StatelessWidget {
             playerController.playPause();
           },
           onLongPress: () {
-            showModalBottomSheet(
-              constraints: const BoxConstraints(maxWidth: 500),
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(10.0)),
+            material.showModalBottomSheet(
+              constraints: const material.BoxConstraints(maxWidth: 500),
+              shape: const material.RoundedRectangleBorder(
+                borderRadius: material.BorderRadius.vertical(top: material.Radius.circular(10.0)),
               ),
               isScrollControlled: true,
               context: playerController.homeScaffoldkey.currentState!.context,
-              barrierColor: Colors.transparent.withAlpha(100),
+              barrierColor: material.Colors.transparent.withAlpha(100),
               builder: (context) => SongInfoBottomSheet(
                 playerController.currentSong.value!,
                 calledFromPlayer: true,
@@ -51,79 +51,79 @@ class GesturePlayer extends StatelessWidget {
             ).whenComplete(() => Get.delete<SongInfoController>());
           },
         ),
-        IgnorePointer(
-          child: Align(
-            child: Center(
+        material.IgnorePointer(
+          child: material.Align(
+            child: material.Center(
               child: Obx(
-                () => FadeTransition(
+                () => material.FadeTransition(
                   opacity: playerController.gesturePlayerStateAnimation!,
                   child: playerController.gesturePlayerVisibleState.value == 2
-                      ? const SizedBox.shrink()
-                      : Icon(
+                      ? const material.SizedBox.shrink()
+                      : material.Icon(
                           playerController.gesturePlayerVisibleState.value == 1
-                              ? Icons.play_arrow
-                              : Icons.pause,
+                              ? material.Icons.play_arrow
+                              : material.Icons.pause,
                           size: 180,
-                          color: Colors.white,
+                          color: material.Colors.white,
                         ),
                 ),
               ),
             ),
           ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.only(
+        material.Align(
+          alignment: material.Alignment.bottomCenter,
+          child: material.Padding(
+            padding: material.EdgeInsets.only(
                 bottom: Get.mediaQuery.padding.bottom != 0
                     ? Get.mediaQuery.padding.bottom + 10
                     : 20,
                 left: 20,
                 right: 20),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(10)),
-              constraints: const BoxConstraints(maxWidth: 500),
+            child: material.Container(
+              decoration: material.BoxDecoration(
+                  color: material.Theme.of(context).primaryColor.withOpacity(0.3),
+                  borderRadius: material.BorderRadius.circular(10)),
+              constraints: const material.BoxConstraints(maxWidth: 500),
               height: 142,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: BackdropFilter(
+              child: material.ClipRRect(
+                borderRadius: material.BorderRadius.circular(10),
+                child: material.BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                  child: material.Padding(
+                    padding: const material.EdgeInsets.symmetric(
                         horizontal: 15, vertical: 10),
-                    child: Column(children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: material.Column(children: [
+                      material.Row(
+                        mainAxisAlignment: material.MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                          material.Expanded(
+                            child: material.Column(
+                                crossAxisAlignment: material.CrossAxisAlignment.start,
                                 children: [
                                   Obx(() {
                                     return Marquee(
                                       delay: const Duration(milliseconds: 300),
                                       duration: const Duration(seconds: 10),
                                       id: "${playerController.currentSong.value}_title",
-                                      child: Text(
+                                      child: material.Text(
                                         playerController.currentSong.value !=
                                                 null
                                             ? playerController
                                                 .currentSong.value!.title
                                             : "NA",
-                                        textAlign: TextAlign.start,
-                                        style: Theme.of(context)
+                                        textAlign: material.TextAlign.start,
+                                        style: material.Theme.of(context)
                                             .textTheme
                                             .titleMedium!
                                             .copyWith(
-                                                color: Theme.of(context)
+                                                color: material.Theme.of(context)
                                                     .primaryColor
                                                     .complementaryColor),
                                       ),
                                     );
                                   }),
-                                  const SizedBox(
+                                  const material.SizedBox(
                                     height: 7,
                                   ),
                                   GetX<PlayerController>(builder: (controller) {
@@ -131,54 +131,53 @@ class GesturePlayer extends StatelessWidget {
                                       delay: const Duration(milliseconds: 300),
                                       duration: const Duration(seconds: 10),
                                       id: "${playerController.currentSong.value}_subtitle",
-                                      child: Text(
+                                      child: material.Text(
                                         playerController.currentSong.value !=
                                                 null
                                             ? controller
                                                 .currentSong.value!.artist!
                                             : "NA",
-                                        textAlign: TextAlign.start,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: Theme.of(context)
+                                        textAlign: material.TextAlign.start,
+                                        overflow: material.TextOverflow.ellipsis,
+                                        style: material.Theme.of(context)
                                             .textTheme
                                             .titleSmall!
                                             .copyWith(
-                                                color: Theme.of(context)
+                                                color: material.Theme.of(context)
                                                     .primaryColor
                                                     .complementaryColor,
-                                                fontWeight: FontWeight.normal),
+                                                fontWeight: material.FontWeight.normal),
                                       ),
                                     );
                                   }),
                                 ]),
                           ),
-                          SizedBox(
+                          material.SizedBox(
                             width: 100, // Augmenté pour accommoder les deux boutons côte à côte
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                            child: material.Column(
+                              mainAxisAlignment: material.MainAxisAlignment.start,
+                              crossAxisAlignment: material.CrossAxisAlignment.end,
                               children: [
-                                // Like and Lyrics buttons side by side
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                                material.Row(
+                                  mainAxisAlignment: material.MainAxisAlignment.end,
                                   children: [
                                     // Lyrics button
-                                    IconButton(
+                                    material.IconButton(
                                       iconSize: 20,
                                       splashRadius: 10,
-                                      visualDensity: const VisualDensity(
+                                      visualDensity: const material.VisualDensity(
                                           horizontal: -4, vertical: -4),
                                       onPressed: playerController.showLyrics,
                                       icon: Obx(
-                                        () => Icon(
-                                          Icons.lyrics_outlined,
+                                        () => material.Icon(
+                                          material.Icons.lyrics_outlined,
                                           color: playerController
                                                   .showLyricsflag.value
-                                              ? Theme.of(context)
+                                              ? material.Theme.of(context)
                                                   .textTheme
                                                   .titleMedium!
                                                   .color
-                                              : Theme.of(context)
+                                              : material.Theme.of(context)
                                                   .textTheme
                                                   .titleMedium!
                                                   .color!
@@ -187,70 +186,70 @@ class GesturePlayer extends StatelessWidget {
                                       ),
                                     ),
                                     // Favorite button
-                                    IconButton(
+                                    material.IconButton(
                                         splashRadius: 10,
                                         iconSize: 20,
-                                        visualDensity: const VisualDensity(
+                                        visualDensity: const material.VisualDensity(
                                             horizontal: -4, vertical: -4),
                                         onPressed: playerController.toggleFavourite,
-                                        icon: Obx(() => Icon(
+                                        icon: Obx(() => material.Icon(
                                               playerController
                                                       .isCurrentSongFav.isFalse
-                                                  ? Icons.favorite_border
-                                                  : Icons.favorite,
-                                              color: Theme.of(context)
+                                                  ? material.Icons.favorite_border
+                                                  : material.Icons.favorite,
+                                              color: material.Theme.of(context)
                                                   .textTheme
                                                   .titleMedium!
                                                   .color,
                                             ))),
                                   ],
                                 ),
-                                Column(
+                                material.Column(
                                   children: [
-                                    Row(
+                                    material.Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                          material.MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Obx(() {
-                                          return IconButton(
+                                          return material.IconButton(
                                               splashRadius: 10,
-                                              visualDensity: const VisualDensity(
+                                              visualDensity: const material.VisualDensity(
                                                   horizontal: -4, vertical: -4),
                                               iconSize: 18,
                                               onPressed:
                                                   playerController.toggleLoopMode,
-                                              icon: Icon(
-                                                Icons.all_inclusive,
+                                              icon: material.Icon(
+                                                material.Icons.all_inclusive,
                                                 color: playerController
                                                         .isLoopModeEnabled.value
-                                                    ? Theme.of(context)
+                                                    ? material.Theme.of(context)
                                                         .textTheme
                                                         .titleLarge!
                                                         .color
-                                                    : Theme.of(context)
+                                                    : material.Theme.of(context)
                                                         .textTheme
                                                         .titleLarge!
                                                         .color!
                                                         .withValues(alpha: 0.2),
                                               ));
                                         }),
-                                        IconButton(
+                                        material.IconButton(
                                           iconSize: 18,
                                           splashRadius: 10,
-                                          visualDensity: const VisualDensity(
+                                          visualDensity: const material.VisualDensity(
                                               horizontal: -4, vertical: -4),
                                           onPressed:
                                               playerController.toggleShuffleMode,
                                           icon: Obx(
-                                            () => Icon(
+                                            () => material.Icon(
                                               Ionicons.shuffle,
                                               color: playerController
                                                       .isShuffleModeEnabled.value
-                                                  ? Theme.of(context)
+                                                  ? material.Theme.of(context)
                                                       .textTheme
                                                       .titleLarge!
                                                       .color
-                                                  : Theme.of(context)
+                                                  : material.Theme.of(context)
                                                       .textTheme
                                                       .titleLarge!
                                                       .color!
@@ -268,24 +267,24 @@ class GesturePlayer extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
+                      const material.SizedBox(
                         height: 5,
                       ),
                       GetX<PlayerController>(builder: (controller) {
                         return ProgressBar(
                           thumbRadius: 6,
                           baseBarColor:
-                              Theme.of(context).sliderTheme.inactiveTrackColor,
+                              material.Theme.of(context).sliderTheme.inactiveTrackColor,
                           bufferedBarColor:
-                              Theme.of(context).sliderTheme.valueIndicatorColor,
+                              material.Theme.of(context).sliderTheme.valueIndicatorColor,
                           progressBarColor:
-                              Theme.of(context).sliderTheme.activeTrackColor,
-                          thumbColor: Theme.of(context).sliderTheme.thumbColor,
-                          timeLabelTextStyle: Theme.of(context)
+                              material.Theme.of(context).sliderTheme.activeTrackColor,
+                          thumbColor: material.Theme.of(context).sliderTheme.thumbColor,
+                          timeLabelTextStyle: material.Theme.of(context)
                               .textTheme
                               .titleSmall!
                               .copyWith(
-                                  color: Theme.of(context)
+                                  color: material.Theme.of(context)
                                       .primaryColor
                                       .complementaryColor),
                           progress: controller.progressBarStatus.value.current,
@@ -304,44 +303,44 @@ class GesturePlayer extends StatelessWidget {
 
         // Lyrics overlay for GesturePlayer
         Obx(() => playerController.showLyricsflag.value
-            ? GestureDetector(
+            ? material.GestureDetector(
                 onTap: () {
                   playerController.showLyrics();
                 },
-                child: Container(
+                child: material.Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.black.withValues(alpha: 0.8),
+                  decoration: material.BoxDecoration(
+                    color: material.Colors.black.withValues(alpha: 0.8),
                   ),
-                  child: Stack(
+                  child: material.Stack(
                     children: [
                       // Lyrics content with switch
-                      Column(
+                      material.Column(
                         children: [
                           // Top padding
-                          SizedBox(height: MediaQuery.of(context).size.height * 0.12),
+                          material.SizedBox(height: Get.mediaQuery.size.height * 0.12),
                           // Lyrics switch (Sync/Plain buttons)
                           const LyricsSwitch(),
                           // Lyrics widget
-                          Expanded(
+                          material.Expanded(
                             child: LyricsWidget(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              padding: const material.EdgeInsets.symmetric(horizontal: 20),
                             ),
                           ),
                         ],
                       ),
                       // Close button
-                      Positioned(
+                      material.Positioned(
                         top: 50,
                         right: 20,
-                        child: IconButton(
+                        child: material.IconButton(
                           onPressed: () {
                             playerController.showLyrics();
                           },
-                          icon: const Icon(
-                            Icons.close,
-                            color: Colors.white,
+                          icon: const material.Icon(
+                            material.Icons.close,
+                            color: material.Colors.white,
                             size: 30,
                           ),
                         ),
@@ -350,15 +349,296 @@ class GesturePlayer extends StatelessWidget {
                   ),
                 ),
               )
-            : const SizedBox.shrink()),
+            : const material.SizedBox.shrink()),
 
         // absorb pointer to prevent the next,prev gesture from being triggered when the user tries to switch app
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: AbsorbPointer(
-            child: SizedBox(
+        material.Align(
+          alignment: material.Alignment.bottomCenter,
+          child: material.Padding(
+            padding: material.EdgeInsets.only(
+                bottom: Get.mediaQuery.padding.bottom != 0
+                    ? Get.mediaQuery.padding.bottom + 10
+                    : 20,
+                left: 20,
+                right: 20),
+            child: material.Container(
+              decoration: material.BoxDecoration(
+                  color: material.Theme.of(context).primaryColor.withOpacity(0.3),
+                  borderRadius: material.BorderRadius.circular(10)),
+              constraints: const material.BoxConstraints(maxWidth: 500),
+              height: 142,
+              child: material.ClipRRect(
+                borderRadius: material.BorderRadius.circular(10),
+                child: material.BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+                  child: material.Padding(
+                    padding: const material.EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
+                    child: material.Column(children: [
+                      material.Row(
+                        mainAxisAlignment: material.MainAxisAlignment.spaceBetween,
+                        children: [
+                          material.Expanded(
+                            child: material.Column(
+                                crossAxisAlignment: material.CrossAxisAlignment.start,
+                                children: [
+                                  Obx(() {
+                                    return Marquee(
+                                      delay: const Duration(milliseconds: 300),
+                                      duration: const Duration(seconds: 10),
+                                      id: "${playerController.currentSong.value}_title",
+                                      child: material.Text(
+                                        playerController.currentSong.value !=
+                                                null
+                                            ? playerController
+                                                .currentSong.value!.title
+                                            : "NA",
+                                        textAlign: material.TextAlign.start,
+                                        style: material.Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .copyWith(
+                                                color: material.Theme.of(context)
+                                                    .primaryColor
+                                                    .complementaryColor),
+                                      ),
+                                    );
+                                  }),
+                                  const material.SizedBox(
+                                    height: 7,
+                                  ),
+                                  GetX<PlayerController>(builder: (controller) {
+                                    return Marquee(
+                                      delay: const Duration(milliseconds: 300),
+                                      duration: const Duration(seconds: 10),
+                                      id: "${playerController.currentSong.value}_subtitle",
+                                      child: material.Text(
+                                        playerController.currentSong.value !=
+                                                null
+                                            ? controller
+                                                .currentSong.value!.artist!
+                                            : "NA",
+                                        textAlign: material.TextAlign.start,
+                                        overflow: material.TextOverflow.ellipsis,
+                                        style: material.Theme.of(context)
+                                            .textTheme
+                                            .titleSmall!
+                                            .copyWith(
+                                                color: material.Theme.of(context)
+                                                    .primaryColor
+                                                    .complementaryColor,
+                                                fontWeight: material.FontWeight.normal),
+                                      ),
+                                    );
+                                  }),
+                                ]),
+                          ),
+                          material.SizedBox(
+                            width: 100, // Augmenté pour accommoder les deux boutons côte à côte
+                            child: material.Column(
+                              mainAxisAlignment: material.MainAxisAlignment.start,
+                              crossAxisAlignment: material.CrossAxisAlignment.end,
+                              children: [
+                                material.Row(
+                                  mainAxisAlignment: material.MainAxisAlignment.end,
+                                  children: [
+                                    // Lyrics button
+                                    material.IconButton(
+                                      iconSize: 20,
+                                      splashRadius: 10,
+                                      visualDensity: const material.VisualDensity(
+                                          horizontal: -4, vertical: -4),
+                                      onPressed: playerController.showLyrics,
+                                      icon: Obx(
+                                        () => material.Icon(
+                                          material.Icons.lyrics_outlined,
+                                          color: playerController
+                                                  .showLyricsflag.value
+                                              ? material.Theme.of(context)
+                                                  .textTheme
+                                                  .titleMedium!
+                                                  .color
+                                              : material.Theme.of(context)
+                                                  .textTheme
+                                                  .titleMedium!
+                                                  .color!
+                                                  .withValues(alpha: 0.4),
+                                        ),
+                                      ),
+                                    ),
+                                    // Favorite button
+                                    material.IconButton(
+                                        splashRadius: 10,
+                                        iconSize: 20,
+                                        visualDensity: const material.VisualDensity(
+                                            horizontal: -4, vertical: -4),
+                                        onPressed: playerController.toggleFavourite,
+                                        icon: Obx(() => material.Icon(
+                                              playerController
+                                                      .isCurrentSongFav.isFalse
+                                                  ? material.Icons.favorite_border
+                                                  : material.Icons.favorite,
+                                              color: material.Theme.of(context)
+                                                  .textTheme
+                                                  .titleMedium!
+                                                  .color,
+                                            ))),
+                                  ],
+                                ),
+                                material.Column(
+                                  children: [
+                                    material.Row(
+                                      mainAxisAlignment:
+                                          material.MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Obx(() {
+                                          return material.IconButton(
+                                              splashRadius: 10,
+                                              visualDensity: const material.VisualDensity(
+                                                  horizontal: -4, vertical: -4),
+                                              iconSize: 18,
+                                              onPressed:
+                                                  playerController.toggleLoopMode,
+                                              icon: material.Icon(
+                                                material.Icons.all_inclusive,
+                                                color: playerController
+                                                        .isLoopModeEnabled.value
+                                                    ? material.Theme.of(context)
+                                                        .textTheme
+                                                        .titleLarge!
+                                                        .color
+                                                    : material.Theme.of(context)
+                                                        .textTheme
+                                                        .titleLarge!
+                                                        .color!
+                                                        .withValues(alpha: 0.2),
+                                              ));
+                                        }),
+                                        material.IconButton(
+                                          iconSize: 18,
+                                          splashRadius: 10,
+                                          visualDensity: const material.VisualDensity(
+                                              horizontal: -4, vertical: -4),
+                                          onPressed:
+                                              playerController.toggleShuffleMode,
+                                          icon: Obx(
+                                            () => material.Icon(
+                                              Ionicons.shuffle,
+                                              color: playerController
+                                                      .isShuffleModeEnabled.value
+                                                  ? material.Theme.of(context)
+                                                      .textTheme
+                                                      .titleLarge!
+                                                      .color
+                                                  : material.Theme.of(context)
+                                                      .textTheme
+                                                      .titleLarge!
+                                                      .color!
+                                                      .withValues(alpha: 0.2),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      const material.SizedBox(
+                        height: 5,
+                      ),
+                      GetX<PlayerController>(builder: (controller) {
+                        return ProgressBar(
+                          thumbRadius: 6,
+                          baseBarColor:
+                              material.Theme.of(context).sliderTheme.inactiveTrackColor,
+                          bufferedBarColor:
+                              material.Theme.of(context).sliderTheme.valueIndicatorColor,
+                          progressBarColor:
+                              material.Theme.of(context).sliderTheme.activeTrackColor,
+                          thumbColor: material.Theme.of(context).sliderTheme.thumbColor,
+                          timeLabelTextStyle: material.Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(
+                                  color: material.Theme.of(context)
+                                      .primaryColor
+                                      .complementaryColor),
+                          progress: controller.progressBarStatus.value.current,
+                          total: controller.progressBarStatus.value.total,
+                          buffered: controller.progressBarStatus.value.buffered,
+                          onSeek: controller.seek,
+                        );
+                      }),
+                    ]),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+
+        // Lyrics overlay for GesturePlayer
+        Obx(() => playerController.showLyricsflag.value
+            ? material.GestureDetector(
+                onTap: () {
+                  playerController.showLyrics();
+                },
+                child: material.Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: material.BoxDecoration(
+                    color: material.Colors.black.withValues(alpha: 0.8),
+                  ),
+                  child: material.Stack(
+                    children: [
+                      // Lyrics content with switch
+                      material.Column(
+                        children: [
+                          // Top padding
+                          material.SizedBox(height: Get.mediaQuery.size.height * 0.12),
+                          // Lyrics switch (Sync/Plain buttons)
+                          const LyricsSwitch(),
+                          // Lyrics widget
+                          material.Expanded(
+                            child: LyricsWidget(
+                              padding: const material.EdgeInsets.symmetric(horizontal: 20),
+                            ),
+                          ),
+                        ],
+                      ),
+                      // Close button
+                      material.Positioned(
+                        top: 50,
+                        right: 20,
+                        child: material.IconButton(
+                          onPressed: () {
+                            playerController.showLyrics();
+                          },
+                          icon: const material.Icon(
+                            material.Icons.close,
+                            color: material.Colors.white,
+                            size: 30,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            : const material.SizedBox.shrink()),
+
+        // absorb pointer to prevent the next,prev gesture from being triggered when the user tries to switch app
+        material.Align(
+          alignment: material.Alignment.bottomCenter,
+          child: material.AbsorbPointer(
+            child: material.SizedBox(
               height: Get.mediaQuery.padding.bottom + 20,
-              child: Container(),
+              child: material.Container(),
             ),
           ),
         )

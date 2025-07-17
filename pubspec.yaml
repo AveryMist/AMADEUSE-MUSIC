@@ -89,6 +89,9 @@ dependencies:
   web_socket_channel: ^2.4.0
   connectivity_plus: ^5.0.2
   flutter_svg: ^2.2.0
+  # Home screen widgets
+  # home_widget: ^0.6.0
+  # workmanager: ^0.5.2
 dev_dependencies:
 
   # The "flutter_lints" package below contains a set of recommended lints to

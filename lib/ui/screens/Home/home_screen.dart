@@ -5,10 +5,12 @@ import '../Search/components/desktop_search_bar.dart';
 import '/ui/screens/Search/search_screen_controller.dart';
 import '/ui/widgets/animated_screen_transition.dart';
 import '../Library/library_combined.dart';
-import '../../widgets/side_nav_bar.dart';
+
+import '../../widgets/floating_particles_background.dart';
 import '../Library/library.dart';
 import '../Search/search_screen.dart';
 import '../Settings/settings_screen_controller.dart';
+import '../Settings/settings_screen.dart';
 import '/ui/player/player_controller.dart';
 import '/ui/widgets/create_playlist_dialog.dart';
 import '../../navigator.dart';
@@ -16,10 +18,89 @@ import '../../widgets/content_list_widget.dart';
 import '../../widgets/quickpickswidget.dart';
 import '../../widgets/shimmer_widgets/home_shimmer.dart';
 import 'home_screen_controller.dart';
-import '../Settings/settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  void _showNavigationMenu(BuildContext context) {
+    final homeScreenController = Get.find<HomeScreenController>();
+    
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                height: 4,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).dividerColor,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 20),
+              _buildMenuItem(context, Icons.home, "home".tr, () {
+                 homeScreenController.tabIndex.value = 0;
+                 Navigator.pop(context);
+               }),
+               _buildMenuItem(context, Icons.music_note, "songs".tr, () {
+                 homeScreenController.tabIndex.value = 1;
+                 Navigator.pop(context);
+               }),
+               _buildMenuItem(context, Icons.playlist_play, "playlists".tr, () {
+                 homeScreenController.tabIndex.value = 2;
+                 Navigator.pop(context);
+               }),
+               _buildMenuItem(context, Icons.album, "albums".tr, () {
+                 homeScreenController.tabIndex.value = 3;
+                 Navigator.pop(context);
+               }),
+               _buildMenuItem(context, Icons.person, "artists".tr, () {
+                 homeScreenController.tabIndex.value = 4;
+                 Navigator.pop(context);
+               }),
+              _buildMenuItem(context, Icons.settings, "settings".tr, () {
+                 Get.to(() => const SettingsScreen());
+                 Navigator.pop(context);
+               }),
+              _buildMenuItem(context, Icons.help, "help".tr, () {
+                // Action pour l'aide - à personnaliser selon vos besoins
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("help".tr)),
+                );
+                Navigator.pop(context);
+              }),
+              const SizedBox(height: 20),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildMenuItem(BuildContext context, IconData icon, String title, VoidCallback onTap) {
+    return ListTile(
+      leading: Icon(icon, color: Theme.of(context).iconTheme.color),
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.bodyLarge,
+      ),
+      onTap: onTap,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final PlayerController playerController = Get.find<PlayerController>();
@@ -30,9 +111,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
         floatingActionButton: Obx(
-          () => ((homeScreenController.tabIndex.value == 0 &&
-                          !GetPlatform.isDesktop) ||
-                      homeScreenController.tabIndex.value == 2) &&
+          () => homeScreenController.tabIndex.value == 2 &&
                   settingsScreenController.isBottomNavBarEnabled.isFalse
               ? Obx(
                   () => Padding(
@@ -53,21 +132,12 @@ class HomeScreen extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(14))),
                             elevation: 0,
                             onPressed: () async {
-                              if (homeScreenController.tabIndex.value == 2) {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) =>
-                                        const CreateNRenamePlaylistPopup());
-                              } else {
-                                Get.toNamed(ScreenNavigationSetup.searchScreen,
-                                    id: ScreenNavigationSetup.id);
-                              }
-                              // file:///data/user/0/com.example.harmonymusic/cache/libCachedImageData/
-                              //file:///data/user/0/com.example.harmonymusic/cache/just_audio_cache/
+                              showDialog(
+                                  context: context,
+                                  builder: (context) =>
+                                      const CreateNRenamePlaylistPopup());
                             },
-                            child: Icon(homeScreenController.tabIndex.value == 2
-                                ? Icons.add
-                                : Icons.search)),
+                            child: const Icon(Icons.add)),
                       ),
                     ),
                   ),
@@ -75,17 +145,13 @@ class HomeScreen extends StatelessWidget {
               : const SizedBox.shrink(),
         ),
         body: Obx(
-          () => Row(
-            children: <Widget>[
-              // create a navigation rail
-              settingsScreenController.isBottomNavBarEnabled.isFalse
-                  ? const SideNavBar()
-                  : const SizedBox(
-                      width: 0,
-                    ),
-              //const VerticalDivider(thickness: 1, width: 2),
-              Expanded(
-                child: Obx(() => AnimatedScreenTransition(
+          () => FloatingParticlesBackground(
+            enabled: settingsScreenController.isBottomNavBarEnabled.isFalse,
+            particleCount: 15,
+            child: Stack(
+              children: <Widget>[
+                // Contenu principal
+                Obx(() => AnimatedScreenTransition(
                     enabled: settingsScreenController
                         .isTransitionAnimationDisabled.isFalse,
                     resverse: homeScreenController.reverseAnimationtransiton,
@@ -95,8 +161,68 @@ class HomeScreen extends StatelessWidget {
                       key: ValueKey<int>(homeScreenController.tabIndex.value),
                       child: const Body(),
                     ))),
-              ),
-            ],
+
+                // Boutons de navigation en bas à droite
+                if (homeScreenController.tabIndex.value == 0 && !GetPlatform.isDesktop && settingsScreenController.isBottomNavBarEnabled.isFalse)
+                  Positioned(
+                    bottom: 20,
+                    right: 20,
+                    child: Obx(
+                      () => Padding(
+                        padding: EdgeInsets.only(
+                            bottom: playerController.playerPanelMinHeight.value > 0
+                                ? playerController.playerPanelMinHeight.value
+                                : 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            // Bouton NavNavigation
+                            SizedBox(
+                              height: 60,
+                              width: 60,
+                              child: FittedBox(
+                                child: FloatingActionButton(
+                                  heroTag: "navNavigation",
+                                  focusElevation: 0,
+                                  shape: const RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(14))),
+                                  elevation: 0,
+                                  onPressed: () {
+                                    _showNavigationMenu(context);
+                                  },
+                                  child: const Icon(Icons.menu),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            // Bouton de recherche
+                            SizedBox(
+                              height: 60,
+                              width: 60,
+                              child: FittedBox(
+                                child: FloatingActionButton(
+                                  heroTag: "search",
+                                  focusElevation: 0,
+                                  shape: const RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(14))),
+                                  elevation: 0,
+                                  onPressed: () {
+                                    Get.toNamed(ScreenNavigationSetup.searchScreen,
+                                        id: ScreenNavigationSetup.id);
+                                  },
+                                  child: const Icon(Icons.search),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ));
   }

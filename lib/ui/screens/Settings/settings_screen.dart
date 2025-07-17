@@ -77,7 +77,7 @@ class SettingsScreen extends StatelessWidget {
                                   .textTheme
                                   .bodyMedium!
                                   .copyWith(
-                                      color: Colors.white70, fontSize: 13),
+                                      color: Color(0xB3FFFFFF), fontSize: 13),
                             ),
                           ),
                         ),
@@ -880,5 +880,4 @@ Widget radioWidget(
         title: Text(label),
       ));
 }
-
 

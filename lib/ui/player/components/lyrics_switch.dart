@@ -1,30 +1,30 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as material;
 import 'package:get/get.dart';
 import 'package:harmonymusic/ui/utils/theme_controller.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../player_controller.dart';
 
-class LyricsSwitch extends StatelessWidget {
+class LyricsSwitch extends material.StatelessWidget {
   const LyricsSwitch({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  material.Widget build(material.BuildContext context) {
     final PlayerController playerController = Get.find<PlayerController>();
     return Obx(
       () => playerController.showLyricsflag.value
-          ? Padding(
-              padding: const EdgeInsets.only(bottom: 10.0),
+          ? material.Padding(
+              padding: const material.EdgeInsets.only(bottom: 10.0),
               child: ToggleSwitch(
                 minWidth: 90.0,
                 cornerRadius: 20.0,
                 activeBgColors: [
-                  [Theme.of(context).primaryColor.withLightness(0.4)],
-                  [Theme.of(context).primaryColor.withLightness(0.4)]
+                  [material.Theme.of(context).primaryColor.withLightness(0.4)],
+                  [material.Theme.of(context).primaryColor.withLightness(0.4)]
                 ],
-                activeFgColor: Colors.white,
-                inactiveBgColor: Theme.of(context).colorScheme.secondary,
-                inactiveFgColor: Colors.white,
+                activeFgColor: material.Colors.white,
+                inactiveBgColor: material.Theme.of(context).colorScheme.secondary,
+                inactiveFgColor: material.Colors.white,
                 initialLabelIndex: playerController.lyricsMode.value,
                 totalSwitches: 2,
                 labels: ['synced'.tr, 'plain'.tr],
@@ -32,7 +32,7 @@ class LyricsSwitch extends StatelessWidget {
                 onToggle: playerController.changeLyricsMode,
               ),
             )
-          : const SizedBox.shrink(),
+          : const material.SizedBox.shrink(),
     );
   }
 }

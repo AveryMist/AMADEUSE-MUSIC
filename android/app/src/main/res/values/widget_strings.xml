@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Widget Descriptions -->
+    <string name="now_playing_widget_description">Affiche la musique en cours de lecture avec contrôles</string>
+    <string name="playlist_widget_description">Accès rapide aux playlists</string>
+    <string name="favorite_tracks_widget_description">Vos morceaux favoris</string>
+    <string name="recently_played_widget_description">Musiques récemment écoutées</string>
+    <string name="quick_controls_widget_description">Contrôles rapides de lecture</string>
+    <string name="album_art_widget_description">Pochette d\'album en cours</string>
+    <string name="lyrics_widget_description">Paroles de la chanson actuelle</string>
+    <string name="equalizer_widget_description">Contrôles d\'égaliseur</string>
+    <string name="sleep_timer_widget_description">Minuteur de veille</string>
+    <string name="music_stats_widget_description">Statistiques de votre bibliothèque</string>
+    <string name="top_artists_widget_description">Vos artistes les plus écoutés</string>
+    <string name="top_albums_widget_description">Vos albums préférés</string>
+    <string name="shuffle_play_widget_description">Lecture aléatoire</string>
+    <string name="theme_toggle_widget_description">Changer de thème</string>
+    <string name="search_widget_description">Recherche rapide</string>
+</resources>

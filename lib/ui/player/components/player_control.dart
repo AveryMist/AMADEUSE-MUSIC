@@ -154,7 +154,7 @@ class PlayerControlWidget extends StatelessWidget {
                                 .withValues(alpha: 0.2),
                       ))),
               _previousButton(playerController, context),
-              const CircleAvatar(radius: 35, child: AnimatedPlayButton(key: Key("playButton"),)),
+              CircleAvatar(radius: 35, child: AnimatedPlayButton()),
               _nextButton(playerController, context),
               Obx(() {
                 return IconButton(

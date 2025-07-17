@@ -22,6 +22,7 @@ import 'ui/screens/Library/library_controller.dart';
 import 'ui/screens/Help/help_screen.dart';
 import 'utils/system_tray.dart';
 import 'utils/update_check_flag_file.dart';
+import '/widgets/home_widgets/widget_manager.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,12 @@ Future<void> main() async {
   WidgetsBinding.instance.addObserver(LifecycleHandler());
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   TerminateRestart.instance.initialize();
+  
+  // Initialize home widgets
+  if (!GetPlatform.isDesktop) {
+    await WidgetManager.initializeWidgets();
+  }
+  
   runApp(const MyApp());
 }
 
@@ -65,7 +72,7 @@ class MyApp extends StatelessWidget {
                   data: mQuery.copyWith(textScaler: scale),
                   child: AnimatedTheme(
                       duration: const Duration(milliseconds: 700),
-                      data: controller.themedata.value!,
+                      data: controller.themedata.value ?? ThemeData.dark(),
                       child: child!),
                 ),
               ),

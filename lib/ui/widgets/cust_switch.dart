@@ -1,24 +1,25 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as material;
 import 'package:get/get.dart';
 import 'package:harmonymusic/ui/utils/theme_controller.dart';
 
-class CustSwitch extends StatelessWidget {
+class CustSwitch extends material.StatelessWidget {
   const CustSwitch({super.key, this.onChanged, required this.value});
   final void Function(bool)? onChanged;
   final bool value;
 
   @override
-  Widget build(BuildContext context) {
+  material.Widget build(material.BuildContext context) {
     final isLightMode =
-        Get.find<ThemeController>().themedata.value!.primaryColor ==
-            Colors.white;
-    return Switch(
-        activeColor: Colors.white,
-        activeTrackColor: isLightMode ? Colors.grey : null,
-        inactiveTrackColor: isLightMode ? Colors.grey : null,
-        inactiveThumbColor:
-            isLightMode ? Colors.grey[300] : Colors.white.withOpacity(0.5),
+        Get.find<ThemeController>().themedata.value!.primaryColor == material.Colors.white;
+    return material.Switch(
+        activeColor: material.Colors.white,
+        activeTrackColor: isLightMode ? material.Colors.grey : null,
+        inactiveTrackColor: isLightMode ? material.Colors.grey : null,
+        inactiveThumbColor: isLightMode ? material.Colors.grey[300] : material.Colors.white.withOpacity(0.5),
         value: value,
         onChanged: onChanged);
   }
 }
+
+// In theme_controller.dart, to fix constant error, make sure primarySwatch is handled properly
+// But since editing this file, note for next

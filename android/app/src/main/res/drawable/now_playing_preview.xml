@@ -1,0 +1,54 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="250dp"
+    android:height="110dp"
+    android:viewportWidth="250"
+    android:viewportHeight="110">
+  
+  <!-- Background -->
+  <path
+      android:fillColor="@color/widget_background"
+      android:pathData="M12,0L238,0A12,12 0,0 1,250 12L250,98A12,12 0,0 1,238 110L12,110A12,12 0,0 1,0 98L0,12A12,12 0,0 1,12 0z"/>
+  
+  <!-- Album Art Placeholder -->
+  <path
+      android:fillColor="@color/widget_button_background"
+      android:pathData="M16,16L76,16A8,8 0,0 1,84 24L84,84A8,8 0,0 1,76 92L16,92A8,8 0,0 1,8 84L8,24A8,8 0,0 1,16 16z"/>
+  
+  <!-- Music Icon -->
+  <path
+      android:fillColor="@color/widget_text_secondary"
+      android:pathData="M46,35v15.55c-0.59,-0.34 -1.27,-0.55 -2,-0.55 -2.21,0 -4,1.79 -4,4s1.79,4 4,4 4,-1.79 4,-4V39h4V35h-6z"/>
+  
+  <!-- Title Line -->
+  <path
+      android:fillColor="@color/widget_text_primary"
+      android:pathData="M100,30L200,30A2,2 0,0 1,202 32L202,38A2,2 0,0 1,200 40L100,40A2,2 0,0 1,98 38L98,32A2,2 0,0 1,100 30z"/>
+  
+  <!-- Artist Line -->
+  <path
+      android:fillColor="@color/widget_text_secondary"
+      android:pathData="M100,50L180,50A2,2 0,0 1,182 52L182,56A2,2 0,0 1,180 58L100,58A2,2 0,0 1,98 56L98,52A2,2 0,0 1,100 50z"/>
+  
+  <!-- Album Line -->
+  <path
+      android:fillColor="@color/widget_text_secondary"
+      android:pathData="M100,65L170,65A1,1 0,0 1,171 66L171,68A1,1 0,0 1,170 69L100,69A1,1 0,0 1,99 68L99,66A1,1 0,0 1,100 65z"/>
+  
+  <!-- Control Buttons -->
+  <circle
+      android:fillColor="@color/widget_button_background"
+      cx="210"
+      cy="40"
+      r="12"/>
+  <circle
+      android:fillColor="@color/widget_button_background"
+      cx="230"
+      cy="55"
+      r="16"/>
+  <circle
+      android:fillColor="@color/widget_button_background"
+      cx="210"
+      cy="70"
+      r="12"/>
+      
+</vector>

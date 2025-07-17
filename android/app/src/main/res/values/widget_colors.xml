@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Widget Colors -->
+    <color name="widget_background">#E6000000</color>
+    <color name="widget_background_light">#E6FFFFFF</color>
+    <color name="widget_text_primary">#FFFFFF</color>
+    <color name="widget_text_primary_light">#000000</color>
+    <color name="widget_text_secondary">#B3FFFFFF</color>
+    <color name="widget_text_secondary_light">#66000000</color>
+    <color name="widget_button_background">#33FFFFFF</color>
+    <color name="widget_button_background_light">#33000000</color>
+    <color name="widget_accent">#FF6B35</color>
+    <color name="widget_accent_light">#FF6B35</color>
+</resources>
