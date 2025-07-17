@@ -8,22 +8,14 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Set up keychain
-        script: |
-          keychain initialize
-      - name: Set up code signing
-        script: |
-          app-store-connect fetch-signing-files "com.anandnet.harmonymusic" --type IOS_APP_STORE --create
-          keychain add-certificates
-          xcode-project use-profiles
       - name: Install dependencies
         script: |
           flutter packages pub get
-      - name: Build ipa for development
+      - name: Build for simulator
         script: |
-          flutter build ipa --release --export-method development
+          flutter build ios --simulator --release
     artifacts:
-      - build/ios/ipa/*.ipa
+      - build/ios/iphonesimulator/*.app
       - $HOME/Library/Developer/Xcode/DerivedData/**/Logs/Build/*.log
       - $HOME/Library/Developer/Xcode/DerivedData/**/Logs/Test/*.log
     publishing:
