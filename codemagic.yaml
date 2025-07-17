@@ -13,7 +13,7 @@ workflows:
           keychain initialize
       - name: Set up code signing
         script: |
-          app-store-connect fetch-signing-files "$(xcode-project list-bundle-ids | head -n 1)" --type IOS_APP_STORE --create
+          app-store-connect fetch-signing-files "com.anandnet.harmonymusic" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
       - name: Install dependencies
