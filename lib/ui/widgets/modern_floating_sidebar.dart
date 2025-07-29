@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:harmonymusic/ui/screens/Home/home_screen_controller.dart';
+import 'package:amadeusemusic/ui/screens/Home/home_screen_controller.dart';
 
 class ModernFloatingSidebar extends StatefulWidget {
   const ModernFloatingSidebar({super.key});
@@ -172,7 +172,9 @@ class _ModernFloatingSidebarState extends State<ModernFloatingSidebar>
                       width: 1.5,
                     ),
                   ),
-                  child: _isExpanded ? _buildExpandedContent(homeScreenController, isMobile) : _buildCollapsedContent(),
+                  child: _isExpanded
+                      ? _buildExpandedContent(homeScreenController, isMobile)
+                      : _buildCollapsedContent(),
                 ),
               ),
             ),
@@ -255,9 +257,9 @@ class _ModernFloatingSidebarState extends State<ModernFloatingSidebar>
               Text(
                 'Navigation',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor,
-                ),
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor,
+                    ),
               ),
               Material(
                 color: Colors.transparent,
@@ -295,9 +297,10 @@ class _ModernFloatingSidebarState extends State<ModernFloatingSidebar>
                     final animationValue = Curves.elasticOut.transform(
                       (_itemsAnimation.value - delay).clamp(0.0, 1.0),
                     );
-                    
+
                     return Transform.translate(
-                      offset: Offset((1 - animationValue) * 100, (1 - animationValue) * 30),
+                      offset: Offset((1 - animationValue) * 100,
+                          (1 - animationValue) * 30),
                       child: Transform.scale(
                         scale: animationValue,
                         child: Opacity(
@@ -305,19 +308,22 @@ class _ModernFloatingSidebarState extends State<ModernFloatingSidebar>
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 12),
                             child: Obx(() => _buildNavigationItem(
-                              item,
-                              controller.tabIndex.value == item.index,
-                              () {
-                                controller.onSideBarTabSelected(item.index);
-                                // Fermer automatiquement après sélection sur mobile
-                                if (MediaQuery.of(context).size.width < 480) {
-                                  Future.delayed(const Duration(milliseconds: 300), () {
-                                    _toggleExpansion();
-                                  });
-                                }
-                              },
-                              isMobile,
-                            )),
+                                  item,
+                                  controller.tabIndex.value == item.index,
+                                  () {
+                                    controller.onSideBarTabSelected(item.index);
+                                    // Fermer automatiquement après sélection sur mobile
+                                    if (MediaQuery.of(context).size.width <
+                                        480) {
+                                      Future.delayed(
+                                          const Duration(milliseconds: 300),
+                                          () {
+                                        _toggleExpansion();
+                                      });
+                                    }
+                                  },
+                                  isMobile,
+                                )),
                           ),
                         ),
                       ),
@@ -381,11 +387,12 @@ class _ModernFloatingSidebarState extends State<ModernFloatingSidebar>
                 child: Text(
                   item.label,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: isSelected
-                        ? Colors.white
-                        : Theme.of(context).textTheme.bodyMedium?.color,
-                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                  ),
+                        color: isSelected
+                            ? Colors.white
+                            : Theme.of(context).textTheme.bodyMedium?.color,
+                        fontWeight:
+                            isSelected ? FontWeight.w600 : FontWeight.w500,
+                      ),
                 ),
               ),
               if (isSelected)

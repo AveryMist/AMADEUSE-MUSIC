@@ -1,7 +1,7 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart' as material;
 import 'package:get/get.dart';
-import 'package:harmonymusic/ui/screens/Settings/settings_screen_controller.dart';
+import 'package:amadeusemusic/ui/screens/Settings/settings_screen_controller.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:widget_marquee/widget_marquee.dart';
 
@@ -25,7 +25,8 @@ class MiniPlayer extends material.StatelessWidget {
     final playerController = Get.find<PlayerController>();
     final size = material.MediaQuery.of(context).size;
     final isWideScreen = size.width > 800;
-    final bottomNavEnabled = Get.find<SettingsScreenController>().isBottomNavBarEnabled.isTrue;
+    final bottomNavEnabled =
+        Get.find<SettingsScreenController>().isBottomNavBarEnabled.isTrue;
     return Obx(() {
       return material.Visibility(
         visible: playerController.isPlayerpanelTopVisible.value,
@@ -72,10 +73,12 @@ class MiniPlayer extends material.StatelessWidget {
                               progressBarColor: material.Theme.of(context)
                                   .sliderTheme
                                   .activeTrackColor,
-                              thumbColor:
-                                  material.Theme.of(context).sliderTheme.thumbColor,
-                              timeLabelTextStyle:
-                                  material.Theme.of(context).textTheme.titleMedium,
+                              thumbColor: material.Theme.of(context)
+                                  .sliderTheme
+                                  .thumbColor,
+                              timeLabelTextStyle: material.Theme.of(context)
+                                  .textTheme
+                                  .titleMedium,
                               progress:
                                   controller.progressBarStatus.value.current,
                               total: controller.progressBarStatus.value.total,
@@ -89,8 +92,9 @@ class MiniPlayer extends material.StatelessWidget {
                     padding: const material.EdgeInsets.symmetric(
                         horizontal: 17.0, vertical: 7),
                     child: material.Row(
-                       mainAxisAlignment: material.MainAxisAlignment.spaceBetween,
-                       crossAxisAlignment: material.CrossAxisAlignment.center,
+                      mainAxisAlignment:
+                          material.MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: material.CrossAxisAlignment.center,
                       children: [
                         material.Row(
                           mainAxisAlignment: material.MainAxisAlignment.start,
@@ -98,17 +102,21 @@ class MiniPlayer extends material.StatelessWidget {
                             playerController.currentSong.value != null
                                 ? GetPlatform.isDesktop
                                     ? GlowEffect(
-                                        glowColor: Get.find<ThemeController>().primaryColor.value,
+                                        glowColor: Get.find<ThemeController>()
+                                            .primaryColor
+                                            .value,
                                         glowRadius: 8.0,
                                         glowOpacity: 0.4,
                                         child: ImageWidget(
                                           size: 50,
-                                          song: playerController.currentSong.value!,
+                                          song: playerController
+                                              .currentSong.value!,
                                         ),
                                       )
                                     : ImageWidget(
                                         size: 50,
-                                        song: playerController.currentSong.value!,
+                                        song:
+                                            playerController.currentSong.value!,
                                       )
                                 : const material.SizedBox(
                                     height: 50,
@@ -121,7 +129,8 @@ class MiniPlayer extends material.StatelessWidget {
                         ),
                         material.Expanded(
                           child: material.GestureDetector(
-                            onHorizontalDragEnd: (material.DragEndDetails details) {
+                            onHorizontalDragEnd:
+                                (material.DragEndDetails details) {
                               if (details.primaryVelocity! < 0) {
                                 playerController.next();
                               } else if (details.primaryVelocity! > 0) {
@@ -134,38 +143,40 @@ class MiniPlayer extends material.StatelessWidget {
                             child: material.ColoredBox(
                               color: material.Colors.transparent,
                               child: material.Column(
-                                mainAxisAlignment: material.MainAxisAlignment.center,
-                                crossAxisAlignment: material.CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    material.MainAxisAlignment.center,
+                                crossAxisAlignment:
+                                    material.CrossAxisAlignment.start,
                                 children: [
-                                   material.SizedBox(
-                                     height: 20,
-                                     child: material.Text(
-                                       playerController.currentSong.value != null
-                                           ? playerController
-                                               .currentSong.value!.title
-                                           : "",
-                                       maxLines: 1,
-                                       style: material.Theme.of(context)
-                                           .textTheme
-                                           .titleMedium,
-                                     ),
-                                   ),
-                                   material.SizedBox(
-                                     height: 20,
+                                  material.SizedBox(
+                                    height: 20,
+                                    child: material.Text(
+                                      playerController.currentSong.value != null
+                                          ? playerController
+                                              .currentSong.value!.title
+                                          : "",
+                                      maxLines: 1,
+                                      style: material.Theme.of(context)
+                                          .textTheme
+                                          .titleMedium,
+                                    ),
+                                  ),
+                                  material.SizedBox(
+                                    height: 20,
                                     child: Marquee(
                                       id: "${playerController.currentSong.value}_mini",
                                       delay: const Duration(milliseconds: 300),
                                       duration: const Duration(seconds: 5),
                                       child: material.Text(
-                                         playerController.currentSong.value !=
-                                                 null
-                                             ? playerController
-                                                 .currentSong.value!.artist!
-                                             : "",
-                                         maxLines: 1,
-                                         style: material.Theme.of(context)
-                                             .textTheme
-                                             .titleSmall,
+                                        playerController.currentSong.value !=
+                                                null
+                                            ? playerController
+                                                .currentSong.value!.artist!
+                                            : "",
+                                        maxLines: 1,
+                                        style: material.Theme.of(context)
+                                            .textTheme
+                                            .titleSmall,
                                       ),
                                     ),
                                   ),
@@ -178,44 +189,46 @@ class MiniPlayer extends material.StatelessWidget {
                         material.SizedBox(
                           width: isWideScreen && !bottomNavEnabled ? 450 : 90,
                           child: material.Row(
-                            mainAxisAlignment: material.MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment:
+                                material.MainAxisAlignment.spaceEvenly,
                             children: [
                               if (isWideScreen && !bottomNavEnabled)
-                                 material.Row(
-                                   children: [
-                                     material.IconButton(
-                                         iconSize: 20,
-                                         onPressed:
-                                             playerController.toggleFavourite,
-                                         icon: Obx(() => material.Icon(
-                                                playerController
-                                                        .isCurrentSongFav.isFalse
-                                                    ? material.Icons.favorite_border
-                                                    : material.Icons.favorite,
-                                               color: material.Theme.of(context)
-                                                   .textTheme
-                                                   .titleMedium!
-                                                   .color,
-                                             ))),
-                                     material.IconButton(
-                                         iconSize: 20,
-                                         onPressed:
-                                             playerController.toggleShuffleMode,
-                                         icon: Obx(() => material.Icon(
-                                               Ionicons.shuffle,
-                                               color: playerController
-                                                       .isShuffleModeEnabled
-                                                       .value
-                                                   ? material.Theme.of(context)
-                                                       .textTheme
-                                                       .titleLarge!
-                                                       .color
-                                                   : material.Theme.of(context)
-                                                       .textTheme
-                                                       .titleLarge!
-                                                       .color!
-                                                       .withOpacity(0.2),
-                                             ))),
+                                material.Row(
+                                  children: [
+                                    material.IconButton(
+                                        iconSize: 20,
+                                        onPressed:
+                                            playerController.toggleFavourite,
+                                        icon: Obx(() => material.Icon(
+                                              playerController
+                                                      .isCurrentSongFav.isFalse
+                                                  ? material
+                                                      .Icons.favorite_border
+                                                  : material.Icons.favorite,
+                                              color: material.Theme.of(context)
+                                                  .textTheme
+                                                  .titleMedium!
+                                                  .color,
+                                            ))),
+                                    material.IconButton(
+                                        iconSize: 20,
+                                        onPressed:
+                                            playerController.toggleShuffleMode,
+                                        icon: Obx(() => material.Icon(
+                                              Ionicons.shuffle,
+                                              color: playerController
+                                                      .isShuffleModeEnabled
+                                                      .value
+                                                  ? material.Theme.of(context)
+                                                      .textTheme
+                                                      .titleLarge!
+                                                      .color
+                                                  : material.Theme.of(context)
+                                                      .textTheme
+                                                      .titleLarge!
+                                                      .color!
+                                                      .withOpacity(0.2),
+                                            ))),
                                   ],
                                 ),
                               if (isWideScreen && !bottomNavEnabled)
@@ -246,7 +259,8 @@ class MiniPlayer extends material.StatelessWidget {
                                               .colorScheme
                                               .secondary,
                                           borderRadius:
-                                              material.BorderRadius.circular(10)),
+                                              material.BorderRadius.circular(
+                                                  10)),
                                       width: 58,
                                       height: 58,
                                       child: material.Center(
@@ -315,7 +329,8 @@ class MiniPlayer extends material.StatelessWidget {
                                         iconSize: 20,
                                         onPressed: () {
                                           playerController.showLyrics();
-                                          material.showDialog(
+                                          material
+                                              .showDialog(
                                                   builder: (context) =>
                                                       const LyricsDialog(),
                                                   context: context)
@@ -329,7 +344,8 @@ class MiniPlayer extends material.StatelessWidget {
                                           playerController
                                               .isDesktopLyricsDialogOpen = true;
                                         },
-                                        icon: material.Icon(material.Icons.lyrics_outlined,
+                                        icon: material.Icon(
+                                            material.Icons.lyrics_outlined,
                                             color: material.Theme.of(context)
                                                 .textTheme
                                                 .titleLarge!
@@ -349,8 +365,10 @@ class MiniPlayer extends material.StatelessWidget {
                               padding: material.EdgeInsets.only(
                                   right: size.width < 1004 ? 0 : 30.0),
                               child: material.Column(
-                                crossAxisAlignment: material.CrossAxisAlignment.end,
-                                mainAxisAlignment: material.MainAxisAlignment.center,
+                                crossAxisAlignment:
+                                    material.CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    material.MainAxisAlignment.center,
                                 children: [
                                   material.Container(
                                     padding: const material.EdgeInsets.only(
@@ -367,29 +385,32 @@ class MiniPlayer extends material.StatelessWidget {
                                               child: material.InkWell(
                                                 onTap: playerController.mute,
                                                 child: material.Icon(
-                                                   volume == 0
-                                                       ? material.Icons.volume_off
-                                                       : volume > 0 &&
-                                                               volume < 50
-                                                           ? material.Icons.volume_down
-                                                           : material.Icons.volume_up,
+                                                  volume == 0
+                                                      ? material
+                                                          .Icons.volume_off
+                                                      : volume > 0 &&
+                                                              volume < 50
+                                                          ? material
+                                                              .Icons.volume_down
+                                                          : material
+                                                              .Icons.volume_up,
                                                   size: 20,
                                                 ),
                                               )),
                                           material.Expanded(
-                                             child: material.SliderTheme(
-                                               data: material.SliderTheme.of(context)
-                                                   .copyWith(
-                                                 trackHeight: 2,
-                                                 thumbShape:
-                                                     const material.RoundSliderThumbShape(
-                                                         enabledThumbRadius:
-                                                             6.0),
-                                                 overlayShape:
-                                                     const material.RoundSliderOverlayShape(
-                                                         overlayRadius: 10.0),
-                                               ),
-                                               child: material.Slider(
+                                            child: material.SliderTheme(
+                                              data: material.SliderTheme.of(
+                                                      context)
+                                                  .copyWith(
+                                                trackHeight: 2,
+                                                thumbShape: const material
+                                                    .RoundSliderThumbShape(
+                                                    enabledThumbRadius: 6.0),
+                                                overlayShape: const material
+                                                    .RoundSliderOverlayShape(
+                                                    overlayRadius: 10.0),
+                                              ),
+                                              child: material.Slider(
                                                 value: playerController
                                                         .volume.value /
                                                     100,
@@ -405,52 +426,59 @@ class MiniPlayer extends material.StatelessWidget {
                                     }),
                                   ),
                                   material.SizedBox(
-                                     height: 40,
-                                     child: material.Row(
-                                       mainAxisAlignment: material.MainAxisAlignment.end,
-                                       children: [
-                                         material.IconButton(
-                                           onPressed: () {
-                                             playerController
-                                                 .homeScaffoldkey.currentState!
-                                                 .openEndDrawer();
-                                           },
-                                           icon: const material.Icon(material.Icons.queue_music),
+                                    height: 40,
+                                    child: material.Row(
+                                      mainAxisAlignment:
+                                          material.MainAxisAlignment.end,
+                                      children: [
+                                        material.IconButton(
+                                          onPressed: () {
+                                            playerController
+                                                .homeScaffoldkey.currentState!
+                                                .openEndDrawer();
+                                          },
+                                          icon: const material.Icon(
+                                              material.Icons.queue_music),
                                         ),
                                         if (size.width > 860)
-                                           material.Padding(
-                                             padding: const material.EdgeInsets.only(
-                                                 left: 10.0),
-                                             child: material.IconButton(
-                                               onPressed: () {
-                                                 material.showModalBottomSheet(
-                                                   constraints:
-                                                       const material.BoxConstraints(
-                                                           maxWidth: 500),
-                                                   shape:
-                                                       const material.RoundedRectangleBorder(
-                                                     borderRadius:
-                                                         material.BorderRadius.vertical(
-                                                             top:
-                                                                 material.Radius.circular(
-                                                                     10.0)),
-                                                   ),
+                                          material.Padding(
+                                            padding:
+                                                const material.EdgeInsets.only(
+                                                    left: 10.0),
+                                            child: material.IconButton(
+                                              onPressed: () {
+                                                material.showModalBottomSheet(
+                                                  constraints: const material
+                                                      .BoxConstraints(
+                                                      maxWidth: 500),
+                                                  shape: const material
+                                                      .RoundedRectangleBorder(
+                                                    borderRadius: material
+                                                            .BorderRadius
+                                                        .vertical(
+                                                            top: material.Radius
+                                                                .circular(
+                                                                    10.0)),
+                                                  ),
                                                   isScrollControlled: true,
                                                   context: playerController
                                                       .homeScaffoldkey
                                                       .currentState!
                                                       .context,
-                                                  barrierColor: material.Colors
-                                                      .transparent
+                                                  barrierColor: material
+                                                      .Colors.transparent
                                                       .withAlpha(100),
                                                   builder: (context) =>
                                                       const SleepTimerBottomSheet(),
                                                 );
                                               },
-                                              icon: material.Icon(playerController
-                                                      .isSleepTimerActive.isTrue
-                                                  ? material.Icons.timer
-                                                  : material.Icons.timer_outlined),
+                                              icon: material.Icon(
+                                                  playerController
+                                                          .isSleepTimerActive
+                                                          .isTrue
+                                                      ? material.Icons.timer
+                                                      : material.Icons
+                                                          .timer_outlined),
                                             ),
                                           ),
                                         const material.SizedBox(
@@ -462,22 +490,24 @@ class MiniPlayer extends material.StatelessWidget {
                                         const material.SizedBox(
                                           width: 10,
                                         ),
-
                                         material.IconButton(
                                           onPressed: () {
                                             final currentSong = playerController
                                                 .currentSong.value;
                                             if (currentSong != null) {
-                                              material.showDialog(
-                                                context: context,
-                                                builder: (context) =>
-                                                    AddToPlaylist(
-                                                         [currentSong]),
-                                              ).whenComplete(() => Get.delete<
-                                                  AddToPlaylistController>());
+                                              material
+                                                  .showDialog(
+                                                    context: context,
+                                                    builder: (context) =>
+                                                        AddToPlaylist(
+                                                            [currentSong]),
+                                                  )
+                                                  .whenComplete(() => Get.delete<
+                                                      AddToPlaylistController>());
                                             }
                                           },
-                                          icon: const material.Icon(material.Icons.playlist_add),
+                                          icon: const material.Icon(
+                                              material.Icons.playlist_add),
                                         ),
                                         if (size.width > 965)
                                           material.IconButton(
@@ -490,12 +520,13 @@ class MiniPlayer extends material.StatelessWidget {
                                                   context: context,
                                                   builder: (context) =>
                                                       SongInfoDialog(
-                                                     song: currentSong,
-                                                   ),
+                                                    song: currentSong,
+                                                  ),
                                                 );
                                               }
                                             },
-                                            icon: const material.Icon(material.Icons.info,
+                                            icon: const material.Icon(
+                                                material.Icons.info,
                                                 size: 22),
                                           ),
                                       ],

@@ -596,19 +596,19 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "3738e6bcc07e289ff9621cf2514f1906c99de9aa"
-      resolved-ref: "3738e6bcc07e289ff9621cf2514f1906c99de9aa"
-      url: "https://github.com/anandnet/just_audio_media_kit.git"
+      ref: HEAD
+      resolved-ref: fa1c44515495e6a76f701215c5abb6791a4e23bc
+      url: "https://github.com/AveryMist/JUST-AUDIO-MEDIA-KIT.git"
     source: git
-    version: "1.0.0"
+    version: "2.1.0"
   just_audio_platform_interface:
     dependency: transitive
     description:
       name: just_audio_platform_interface
-      sha256: "271b93b484c6f494ecd72a107fffbdb26b425f170c665b9777a0a24a726f2f24"
+      sha256: "4cd94536af0219fa306205a58e78d67e02b0555283c1c094ee41e402a14a5c4a"
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.0"
+    version: "4.5.0"
   just_audio_web:
     dependency: transitive
     description:
@@ -649,14 +649,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
-  lists:
-    dependency: transitive
-    description:
-      name: lists
-      sha256: "4ca5c19ae4350de036a7e996cdd1ee39c93ac0a2b840f4915459b7d0a7d4ab27"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   logging:
     dependency: transitive
     description:
@@ -685,26 +677,10 @@ packages:
     dependency: transitive
     description:
       name: media_kit
-      sha256: "1f1deee148533d75129a6f38251ff8388e33ee05fc2d20a6a80e57d6051b7b62"
+      sha256: "48c10c3785df5d88f0eef970743f8c99b2e5da2b34b9d8f9876e598f62d9e776"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.11"
-  media_kit_libs_linux:
-    dependency: transitive
-    description:
-      name: media_kit_libs_linux
-      sha256: e186891c31daa6bedab4d74dcdb4e8adfccc7d786bfed6ad81fe24a3b3010310
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.3"
-  media_kit_libs_windows_audio:
-    dependency: transitive
-    description:
-      name: media_kit_libs_windows_audio
-      sha256: c2fd558cc87b9d89a801141fcdffe02e338a3b21a41a18fbd63d5b221a1b8e53
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.9"
+    version: "1.2.0"
   menu_base:
     dependency: transitive
     description:
@@ -933,10 +909,10 @@ packages:
     dependency: transitive
     description:
       name: safe_local_storage
-      sha256: ede4eb6cb7d88a116b3d3bf1df70790b9e2038bc37cb19112e381217c74d9440
+      sha256: e9a21b6fec7a8aa62cc2585ff4c1b127df42f3185adbd2aca66b47abe2e80236
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "2.0.1"
   screen_retriever:
     dependency: transitive
     description:
@@ -1037,11 +1013,19 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: b53567a42b4ba3793a3cf00d478bdba0ecce33d7
-      resolved-ref: b53567a42b4ba3793a3cf00d478bdba0ecce33d7
-      url: "https://github.com/anandnet/animated_side_bar.git"
+      ref: HEAD
+      resolved-ref: "39d4b00ade0b4de46678bc4d099ffcbd77a22a13"
+      url: "https://github.com/AveryMist/ANIMATED-SIDE-BAR.git"
     source: git
     version: "0.0.3"
+  simple_sparse_list:
+    dependency: transitive
+    description:
+      name: simple_sparse_list
+      sha256: aa648fd240fa39b49dcd11c19c266990006006de6699a412de485695910fbc1f
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1155,11 +1139,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: eb505e07e11d0fe1f5c03993e707c6678428c353
-      resolved-ref: eb505e07e11d0fe1f5c03993e707c6678428c353
-      url: "https://github.com/anandnet/terminate_restart.git"
+      ref: HEAD
+      resolved-ref: "67b7e5fdea930d20cadb2280004fdcc71c0ff905"
+      url: "https://github.com/AveryMist/TERMINATE-RESTART.git"
     source: git
-    version: "1.0.7"
+    version: "1.0.10"
   test_api:
     dependency: transitive
     description:
@@ -1204,10 +1188,10 @@ packages:
     dependency: transitive
     description:
       name: unicode
-      sha256: "0f69e46593d65245774d4f17125c6084d2c20b4e473a983f6e21b7d7762218f1"
+      sha256: "48f8b6c50ed70ba61647f4987d56ec505923041956bbdb651db2838ce7b47b58"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.1"
+    version: "1.1.7"
   universal_platform:
     dependency: transitive
     description:
@@ -1220,10 +1204,10 @@ packages:
     dependency: transitive
     description:
       name: uri_parser
-      sha256: "6543c9fd86d2862fac55d800a43e67c0dcd1a41677cb69c2f8edfe73bbcf1835"
+      sha256: ff4d2c720aca3f4f7d5445e23b11b2d15ef8af5ddce5164643f38ff962dcb270
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.2"
+    version: "3.0.0"
   url_launcher:
     dependency: "direct main"
     description:
@@ -1404,11 +1388,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "1d9ec9baa806705b1d859260eeb389ec28c6b024"
-      resolved-ref: "1d9ec9baa806705b1d859260eeb389ec28c6b024"
-      url: "https://github.com/anandnet/youtube_explode_dart.git"
+      ref: HEAD
+      resolved-ref: "72300a68b30f87dbca6808a75880b507f5fdd963"
+      url: "https://github.com/AveryMist/YOUTUBE-EXPLODE-DART.git"
     source: git
-    version: "2.3.7"
+    version: "2.5.1"
 sdks:
   dart: ">=3.7.0-0 <4.0.0"
   flutter: ">=3.27.0"

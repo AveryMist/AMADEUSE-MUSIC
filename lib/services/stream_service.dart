@@ -10,7 +10,7 @@ class StreamProvider {
 
   static Future<StreamProvider> fetch(String videoId) async {
     final yt = YoutubeExplode();
-    
+
     try {
       final res = await yt.videos.streamsClient.getManifest(videoId);
       final audio = res.audioOnly;

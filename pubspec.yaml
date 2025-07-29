@@ -1,5 +1,5 @@
-name: harmonymusic
-description: A cross platform app for music streaming.
+name: amadeusemusic
+description: "AMADEUSE MUSIC - Application de streaming musical avancée avec intégration YouTube et packages personnalisés AveryMist. Note: Problèmes de compilation temporaires en cours de résolution."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -53,8 +53,8 @@ dependencies:
   just_audio: ^0.9.46
   just_audio_media_kit:
     git:
-      url: https://github.com/anandnet/just_audio_media_kit.git
-      ref: 3738e6bcc07e289ff9621cf2514f1906c99de9aa
+      url: https://github.com/AveryMist/JUST-AUDIO-MEDIA-KIT.git
+      branch: main
   palette_generator: ^0.3.3+4
   path: ^1.8.3
   path_provider: ^2.1.1
@@ -63,15 +63,13 @@ dependencies:
   shimmer: ^3.0.0
   sidebar_with_animation:
     git:
-      url: https://github.com/anandnet/animated_side_bar.git
+      url: https://github.com/AveryMist/ANIMATED-SIDE-BAR.git
       branch: main
-      ref: b53567a42b4ba3793a3cf00d478bdba0ecce33d7
   smtc_windows: ^0.1.2
   terminate_restart:
     git:
-      url: https://github.com/anandnet/terminate_restart.git
+      url: https://github.com/AveryMist/TERMINATE-RESTART.git
       branch: main
-      ref: eb505e07e11d0fe1f5c03993e707c6678428c353
   toggle_switch: ^2.1.0
   tray_manager: ^0.2.3
   url_launcher: ^6.2.1
@@ -79,8 +77,8 @@ dependencies:
   window_manager: ^0.4.2
   youtube_explode_dart:
     git:
-      url: https://github.com/anandnet/youtube_explode_dart.git
-      ref: 1d9ec9baa806705b1d859260eeb389ec28c6b024
+      url: https://github.com/AveryMist/YOUTUBE-EXPLODE-DART.git
+      branch: main
   # Bluetooth and Virtual Audio Dependencies
   flutter_blue_plus: ^1.32.12
   win32: ^5.1.1

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:harmonymusic/utils/helper.dart';
-import 'package:harmonymusic/utils/lang_mapping.dart';
+import 'package:amadeusemusic/utils/helper.dart';
+import 'package:amadeusemusic/utils/lang_mapping.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../widgets/common_dialog_widget.dart';
@@ -57,7 +57,7 @@ class SettingsScreen extends StatelessWidget {
                             onTap: () {
                               launchUrl(
                                 Uri.parse(
-                                  'https://github.com/anandnet/Harmony-Music/releases/latest',
+                                  'https://github.com/anandnet/amadeuse-Music/releases/latest',
                                 ),
                                 mode: LaunchMode.externalApplication,
                               );
@@ -328,7 +328,6 @@ class SettingsScreen extends StatelessWidget {
                                     size: SanckBarSize.BIG)));
                       },
                     ),
-
                   ]),
               CustomExpansionTile(
                 title: "music&Playback".tr,
@@ -496,7 +495,6 @@ class SettingsScreen extends StatelessWidget {
                           ),
                         )
                       : const SizedBox.shrink(),
-
                 ],
               ),
               CustomExpansionTile(
@@ -663,8 +661,6 @@ class SettingsScreen extends StatelessWidget {
                   icon: Icons.miscellaneous_services,
                   title: "misc".tr,
                   children: [
-
-
                     // Reset to default
                     ListTile(
                       contentPadding: const EdgeInsets.only(left: 5, right: 10),
@@ -688,50 +684,49 @@ class SettingsScreen extends StatelessWidget {
 
               // About section
               CustomExpansionTile(
-                title: "about".tr,
-                icon: Icons.info_outline,
-                children: [
-                  ListTile(
-                    contentPadding: const EdgeInsets.only(left: 5, right: 10),
-                    title: const Text("AMADEUSE MUSIC"),
-                    subtitle: const Text("Version Alpha 0.1"),
-                    leading: const Icon(Icons.music_note),
-                  ),
-                  ListTile(
-                    contentPadding: const EdgeInsets.only(left: 5, right: 10),
-                    title: Text("createdBy".tr),
-                    subtitle: const Text("AMADEUSE TEAM"),
-                    leading: const Icon(Icons.group),
-                  ),
-                  ListTile(
-                    contentPadding: const EdgeInsets.only(left: 5, right: 10),
-                    title: Text("sourceCode".tr),
-                    subtitle: const Text("GitHub Repository"),
-                    leading: const Icon(Icons.code),
-                    onTap: () {
-                      launchUrl(
-                        Uri.parse('https://github.com/AveryMist/AMADEUSE-MUSIC'),
-                        mode: LaunchMode.externalApplication,
-                      );
-                    },
-                  ),
-                  ListTile(
-                    contentPadding: const EdgeInsets.only(left: 5, right: 10),
-                    title: Text("community".tr),
-                    subtitle: Text("joinDiscord".tr),
-                    leading: const Icon(Icons.chat),
-                    onTap: () {
-                      launchUrl(
-                        Uri.parse('https://discord.gg/GEZCQwczMY'),
-                        mode: LaunchMode.externalApplication,
-                      );
-                    },
-                  ),
-                ]),
-
+                  title: "about".tr,
+                  icon: Icons.info_outline,
+                  children: [
+                    ListTile(
+                      contentPadding: const EdgeInsets.only(left: 5, right: 10),
+                      title: const Text("AMADEUSE MUSIC"),
+                      subtitle: const Text("Version Alpha 0.1"),
+                      leading: const Icon(Icons.music_note),
+                    ),
+                    ListTile(
+                      contentPadding: const EdgeInsets.only(left: 5, right: 10),
+                      title: Text("createdBy".tr),
+                      subtitle: const Text("AMADEUSE TEAM"),
+                      leading: const Icon(Icons.group),
+                    ),
+                    ListTile(
+                      contentPadding: const EdgeInsets.only(left: 5, right: 10),
+                      title: Text("sourceCode".tr),
+                      subtitle: const Text("GitHub Repository"),
+                      leading: const Icon(Icons.code),
+                      onTap: () {
+                        launchUrl(
+                          Uri.parse(
+                              'https://github.com/AveryMist/AMADEUSE-MUSIC'),
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
+                    ),
+                    ListTile(
+                      contentPadding: const EdgeInsets.only(left: 5, right: 10),
+                      title: Text("community".tr),
+                      subtitle: Text("joinDiscord".tr),
+                      leading: const Icon(Icons.chat),
+                      onTap: () {
+                        launchUrl(
+                          Uri.parse('https://discord.gg/GEZCQwczMY'),
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
+                    ),
+                  ]),
             ],
           )),
-
         ],
       ),
     );
@@ -880,4 +875,3 @@ Widget radioWidget(
         title: Text(label),
       ));
 }
-

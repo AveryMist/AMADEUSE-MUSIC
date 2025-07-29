@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' as material;
 import 'package:get/get.dart';
-import 'package:harmonymusic/ui/utils/theme_controller.dart';
+import 'package:amadeusemusic/ui/utils/theme_controller.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../player_controller.dart';
@@ -23,7 +23,8 @@ class LyricsSwitch extends material.StatelessWidget {
                   [material.Theme.of(context).primaryColor.withLightness(0.4)]
                 ],
                 activeFgColor: material.Colors.white,
-                inactiveBgColor: material.Theme.of(context).colorScheme.secondary,
+                inactiveBgColor:
+                    material.Theme.of(context).colorScheme.secondary,
                 inactiveFgColor: material.Colors.white,
                 initialLabelIndex: playerController.lyricsMode.value,
                 totalSwitches: 2,

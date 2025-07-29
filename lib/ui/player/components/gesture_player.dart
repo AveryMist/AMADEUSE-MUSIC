@@ -4,9 +4,9 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 
 import 'package:flutter/material.dart' as material;
 import 'package:get/get.dart';
-import 'package:harmonymusic/ui/player/components/backgroud_image.dart';
-import 'package:harmonymusic/ui/player/components/lyrics_widget.dart';
-import 'package:harmonymusic/ui/player/components/lyrics_switch.dart';
+import 'package:amadeusemusic/ui/player/components/backgroud_image.dart';
+import 'package:amadeusemusic/ui/player/components/lyrics_widget.dart';
+import 'package:amadeusemusic/ui/player/components/lyrics_switch.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:widget_marquee/widget_marquee.dart';
 
@@ -36,19 +36,23 @@ class GesturePlayer extends material.StatelessWidget {
             playerController.playPause();
           },
           onLongPress: () {
-            material.showModalBottomSheet(
-              constraints: const material.BoxConstraints(maxWidth: 500),
-              shape: const material.RoundedRectangleBorder(
-                borderRadius: material.BorderRadius.vertical(top: material.Radius.circular(10.0)),
-              ),
-              isScrollControlled: true,
-              context: playerController.homeScaffoldkey.currentState!.context,
-              barrierColor: material.Colors.transparent.withAlpha(100),
-              builder: (context) => SongInfoBottomSheet(
-                playerController.currentSong.value!,
-                calledFromPlayer: true,
-              ),
-            ).whenComplete(() => Get.delete<SongInfoController>());
+            material
+                .showModalBottomSheet(
+                  constraints: const material.BoxConstraints(maxWidth: 500),
+                  shape: const material.RoundedRectangleBorder(
+                    borderRadius: material.BorderRadius.vertical(
+                        top: material.Radius.circular(10.0)),
+                  ),
+                  isScrollControlled: true,
+                  context:
+                      playerController.homeScaffoldkey.currentState!.context,
+                  barrierColor: material.Colors.transparent.withAlpha(100),
+                  builder: (context) => SongInfoBottomSheet(
+                    playerController.currentSong.value!,
+                    calledFromPlayer: true,
+                  ),
+                )
+                .whenComplete(() => Get.delete<SongInfoController>());
           },
         ),
         material.IgnorePointer(
@@ -82,7 +86,8 @@ class GesturePlayer extends material.StatelessWidget {
                 right: 20),
             child: material.Container(
               decoration: material.BoxDecoration(
-                  color: material.Theme.of(context).primaryColor.withOpacity(0.3),
+                  color:
+                      material.Theme.of(context).primaryColor.withOpacity(0.3),
                   borderRadius: material.BorderRadius.circular(10)),
               constraints: const material.BoxConstraints(maxWidth: 500),
               height: 142,
@@ -95,11 +100,13 @@ class GesturePlayer extends material.StatelessWidget {
                         horizontal: 15, vertical: 10),
                     child: material.Column(children: [
                       material.Row(
-                        mainAxisAlignment: material.MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment:
+                            material.MainAxisAlignment.spaceBetween,
                         children: [
                           material.Expanded(
                             child: material.Column(
-                                crossAxisAlignment: material.CrossAxisAlignment.start,
+                                crossAxisAlignment:
+                                    material.CrossAxisAlignment.start,
                                 children: [
                                   Obx(() {
                                     return Marquee(
@@ -117,9 +124,10 @@ class GesturePlayer extends material.StatelessWidget {
                                             .textTheme
                                             .titleMedium!
                                             .copyWith(
-                                                color: material.Theme.of(context)
-                                                    .primaryColor
-                                                    .complementaryColor),
+                                                color:
+                                                    material.Theme.of(context)
+                                                        .primaryColor
+                                                        .complementaryColor),
                                       ),
                                     );
                                   }),
@@ -138,35 +146,43 @@ class GesturePlayer extends material.StatelessWidget {
                                                 .currentSong.value!.artist!
                                             : "NA",
                                         textAlign: material.TextAlign.start,
-                                        overflow: material.TextOverflow.ellipsis,
+                                        overflow:
+                                            material.TextOverflow.ellipsis,
                                         style: material.Theme.of(context)
                                             .textTheme
                                             .titleSmall!
                                             .copyWith(
-                                                color: material.Theme.of(context)
-                                                    .primaryColor
-                                                    .complementaryColor,
-                                                fontWeight: material.FontWeight.normal),
+                                                color:
+                                                    material.Theme.of(context)
+                                                        .primaryColor
+                                                        .complementaryColor,
+                                                fontWeight:
+                                                    material.FontWeight.normal),
                                       ),
                                     );
                                   }),
                                 ]),
                           ),
                           material.SizedBox(
-                            width: 100, // Augmenté pour accommoder les deux boutons côte à côte
+                            width:
+                                100, // Augmenté pour accommoder les deux boutons côte à côte
                             child: material.Column(
-                              mainAxisAlignment: material.MainAxisAlignment.start,
-                              crossAxisAlignment: material.CrossAxisAlignment.end,
+                              mainAxisAlignment:
+                                  material.MainAxisAlignment.start,
+                              crossAxisAlignment:
+                                  material.CrossAxisAlignment.end,
                               children: [
                                 material.Row(
-                                  mainAxisAlignment: material.MainAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      material.MainAxisAlignment.end,
                                   children: [
                                     // Lyrics button
                                     material.IconButton(
                                       iconSize: 20,
                                       splashRadius: 10,
-                                      visualDensity: const material.VisualDensity(
-                                          horizontal: -4, vertical: -4),
+                                      visualDensity:
+                                          const material.VisualDensity(
+                                              horizontal: -4, vertical: -4),
                                       onPressed: playerController.showLyrics,
                                       icon: Obx(
                                         () => material.Icon(
@@ -189,13 +205,16 @@ class GesturePlayer extends material.StatelessWidget {
                                     material.IconButton(
                                         splashRadius: 10,
                                         iconSize: 20,
-                                        visualDensity: const material.VisualDensity(
-                                            horizontal: -4, vertical: -4),
-                                        onPressed: playerController.toggleFavourite,
+                                        visualDensity:
+                                            const material.VisualDensity(
+                                                horizontal: -4, vertical: -4),
+                                        onPressed:
+                                            playerController.toggleFavourite,
                                         icon: Obx(() => material.Icon(
                                               playerController
                                                       .isCurrentSongFav.isFalse
-                                                  ? material.Icons.favorite_border
+                                                  ? material
+                                                      .Icons.favorite_border
                                                   : material.Icons.favorite,
                                               color: material.Theme.of(context)
                                                   .textTheme
@@ -207,17 +226,19 @@ class GesturePlayer extends material.StatelessWidget {
                                 material.Column(
                                   children: [
                                     material.Row(
-                                      mainAxisAlignment:
-                                          material.MainAxisAlignment.spaceEvenly,
+                                      mainAxisAlignment: material
+                                          .MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Obx(() {
                                           return material.IconButton(
                                               splashRadius: 10,
-                                              visualDensity: const material.VisualDensity(
-                                                  horizontal: -4, vertical: -4),
+                                              visualDensity:
+                                                  const material.VisualDensity(
+                                                      horizontal: -4,
+                                                      vertical: -4),
                                               iconSize: 18,
-                                              onPressed:
-                                                  playerController.toggleLoopMode,
+                                              onPressed: playerController
+                                                  .toggleLoopMode,
                                               icon: material.Icon(
                                                 material.Icons.all_inclusive,
                                                 color: playerController
@@ -236,15 +257,17 @@ class GesturePlayer extends material.StatelessWidget {
                                         material.IconButton(
                                           iconSize: 18,
                                           splashRadius: 10,
-                                          visualDensity: const material.VisualDensity(
-                                              horizontal: -4, vertical: -4),
-                                          onPressed:
-                                              playerController.toggleShuffleMode,
+                                          visualDensity:
+                                              const material.VisualDensity(
+                                                  horizontal: -4, vertical: -4),
+                                          onPressed: playerController
+                                              .toggleShuffleMode,
                                           icon: Obx(
                                             () => material.Icon(
                                               Ionicons.shuffle,
                                               color: playerController
-                                                      .isShuffleModeEnabled.value
+                                                      .isShuffleModeEnabled
+                                                      .value
                                                   ? material.Theme.of(context)
                                                       .textTheme
                                                       .titleLarge!
@@ -259,7 +282,6 @@ class GesturePlayer extends material.StatelessWidget {
                                         ),
                                       ],
                                     ),
-
                                   ],
                                 )
                               ],
@@ -273,13 +295,17 @@ class GesturePlayer extends material.StatelessWidget {
                       GetX<PlayerController>(builder: (controller) {
                         return ProgressBar(
                           thumbRadius: 6,
-                          baseBarColor:
-                              material.Theme.of(context).sliderTheme.inactiveTrackColor,
-                          bufferedBarColor:
-                              material.Theme.of(context).sliderTheme.valueIndicatorColor,
-                          progressBarColor:
-                              material.Theme.of(context).sliderTheme.activeTrackColor,
-                          thumbColor: material.Theme.of(context).sliderTheme.thumbColor,
+                          baseBarColor: material.Theme.of(context)
+                              .sliderTheme
+                              .inactiveTrackColor,
+                          bufferedBarColor: material.Theme.of(context)
+                              .sliderTheme
+                              .valueIndicatorColor,
+                          progressBarColor: material.Theme.of(context)
+                              .sliderTheme
+                              .activeTrackColor,
+                          thumbColor:
+                              material.Theme.of(context).sliderTheme.thumbColor,
                           timeLabelTextStyle: material.Theme.of(context)
                               .textTheme
                               .titleSmall!
@@ -319,13 +345,15 @@ class GesturePlayer extends material.StatelessWidget {
                       material.Column(
                         children: [
                           // Top padding
-                          material.SizedBox(height: Get.mediaQuery.size.height * 0.12),
+                          material.SizedBox(
+                              height: Get.mediaQuery.size.height * 0.12),
                           // Lyrics switch (Sync/Plain buttons)
                           const LyricsSwitch(),
                           // Lyrics widget
                           material.Expanded(
                             child: LyricsWidget(
-                              padding: const material.EdgeInsets.symmetric(horizontal: 20),
+                              padding: const material.EdgeInsets.symmetric(
+                                  horizontal: 20),
                             ),
                           ),
                         ],
@@ -363,7 +391,8 @@ class GesturePlayer extends material.StatelessWidget {
                 right: 20),
             child: material.Container(
               decoration: material.BoxDecoration(
-                  color: material.Theme.of(context).primaryColor.withOpacity(0.3),
+                  color:
+                      material.Theme.of(context).primaryColor.withOpacity(0.3),
                   borderRadius: material.BorderRadius.circular(10)),
               constraints: const material.BoxConstraints(maxWidth: 500),
               height: 142,
@@ -376,11 +405,13 @@ class GesturePlayer extends material.StatelessWidget {
                         horizontal: 15, vertical: 10),
                     child: material.Column(children: [
                       material.Row(
-                        mainAxisAlignment: material.MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment:
+                            material.MainAxisAlignment.spaceBetween,
                         children: [
                           material.Expanded(
                             child: material.Column(
-                                crossAxisAlignment: material.CrossAxisAlignment.start,
+                                crossAxisAlignment:
+                                    material.CrossAxisAlignment.start,
                                 children: [
                                   Obx(() {
                                     return Marquee(
@@ -398,9 +429,10 @@ class GesturePlayer extends material.StatelessWidget {
                                             .textTheme
                                             .titleMedium!
                                             .copyWith(
-                                                color: material.Theme.of(context)
-                                                    .primaryColor
-                                                    .complementaryColor),
+                                                color:
+                                                    material.Theme.of(context)
+                                                        .primaryColor
+                                                        .complementaryColor),
                                       ),
                                     );
                                   }),
@@ -419,35 +451,43 @@ class GesturePlayer extends material.StatelessWidget {
                                                 .currentSong.value!.artist!
                                             : "NA",
                                         textAlign: material.TextAlign.start,
-                                        overflow: material.TextOverflow.ellipsis,
+                                        overflow:
+                                            material.TextOverflow.ellipsis,
                                         style: material.Theme.of(context)
                                             .textTheme
                                             .titleSmall!
                                             .copyWith(
-                                                color: material.Theme.of(context)
-                                                    .primaryColor
-                                                    .complementaryColor,
-                                                fontWeight: material.FontWeight.normal),
+                                                color:
+                                                    material.Theme.of(context)
+                                                        .primaryColor
+                                                        .complementaryColor,
+                                                fontWeight:
+                                                    material.FontWeight.normal),
                                       ),
                                     );
                                   }),
                                 ]),
                           ),
                           material.SizedBox(
-                            width: 100, // Augmenté pour accommoder les deux boutons côte à côte
+                            width:
+                                100, // Augmenté pour accommoder les deux boutons côte à côte
                             child: material.Column(
-                              mainAxisAlignment: material.MainAxisAlignment.start,
-                              crossAxisAlignment: material.CrossAxisAlignment.end,
+                              mainAxisAlignment:
+                                  material.MainAxisAlignment.start,
+                              crossAxisAlignment:
+                                  material.CrossAxisAlignment.end,
                               children: [
                                 material.Row(
-                                  mainAxisAlignment: material.MainAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      material.MainAxisAlignment.end,
                                   children: [
                                     // Lyrics button
                                     material.IconButton(
                                       iconSize: 20,
                                       splashRadius: 10,
-                                      visualDensity: const material.VisualDensity(
-                                          horizontal: -4, vertical: -4),
+                                      visualDensity:
+                                          const material.VisualDensity(
+                                              horizontal: -4, vertical: -4),
                                       onPressed: playerController.showLyrics,
                                       icon: Obx(
                                         () => material.Icon(
@@ -470,13 +510,16 @@ class GesturePlayer extends material.StatelessWidget {
                                     material.IconButton(
                                         splashRadius: 10,
                                         iconSize: 20,
-                                        visualDensity: const material.VisualDensity(
-                                            horizontal: -4, vertical: -4),
-                                        onPressed: playerController.toggleFavourite,
+                                        visualDensity:
+                                            const material.VisualDensity(
+                                                horizontal: -4, vertical: -4),
+                                        onPressed:
+                                            playerController.toggleFavourite,
                                         icon: Obx(() => material.Icon(
                                               playerController
                                                       .isCurrentSongFav.isFalse
-                                                  ? material.Icons.favorite_border
+                                                  ? material
+                                                      .Icons.favorite_border
                                                   : material.Icons.favorite,
                                               color: material.Theme.of(context)
                                                   .textTheme
@@ -488,17 +531,19 @@ class GesturePlayer extends material.StatelessWidget {
                                 material.Column(
                                   children: [
                                     material.Row(
-                                      mainAxisAlignment:
-                                          material.MainAxisAlignment.spaceEvenly,
+                                      mainAxisAlignment: material
+                                          .MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Obx(() {
                                           return material.IconButton(
                                               splashRadius: 10,
-                                              visualDensity: const material.VisualDensity(
-                                                  horizontal: -4, vertical: -4),
+                                              visualDensity:
+                                                  const material.VisualDensity(
+                                                      horizontal: -4,
+                                                      vertical: -4),
                                               iconSize: 18,
-                                              onPressed:
-                                                  playerController.toggleLoopMode,
+                                              onPressed: playerController
+                                                  .toggleLoopMode,
                                               icon: material.Icon(
                                                 material.Icons.all_inclusive,
                                                 color: playerController
@@ -517,15 +562,17 @@ class GesturePlayer extends material.StatelessWidget {
                                         material.IconButton(
                                           iconSize: 18,
                                           splashRadius: 10,
-                                          visualDensity: const material.VisualDensity(
-                                              horizontal: -4, vertical: -4),
-                                          onPressed:
-                                              playerController.toggleShuffleMode,
+                                          visualDensity:
+                                              const material.VisualDensity(
+                                                  horizontal: -4, vertical: -4),
+                                          onPressed: playerController
+                                              .toggleShuffleMode,
                                           icon: Obx(
                                             () => material.Icon(
                                               Ionicons.shuffle,
                                               color: playerController
-                                                      .isShuffleModeEnabled.value
+                                                      .isShuffleModeEnabled
+                                                      .value
                                                   ? material.Theme.of(context)
                                                       .textTheme
                                                       .titleLarge!
@@ -540,7 +587,6 @@ class GesturePlayer extends material.StatelessWidget {
                                         ),
                                       ],
                                     ),
-
                                   ],
                                 )
                               ],
@@ -554,13 +600,17 @@ class GesturePlayer extends material.StatelessWidget {
                       GetX<PlayerController>(builder: (controller) {
                         return ProgressBar(
                           thumbRadius: 6,
-                          baseBarColor:
-                              material.Theme.of(context).sliderTheme.inactiveTrackColor,
-                          bufferedBarColor:
-                              material.Theme.of(context).sliderTheme.valueIndicatorColor,
-                          progressBarColor:
-                              material.Theme.of(context).sliderTheme.activeTrackColor,
-                          thumbColor: material.Theme.of(context).sliderTheme.thumbColor,
+                          baseBarColor: material.Theme.of(context)
+                              .sliderTheme
+                              .inactiveTrackColor,
+                          bufferedBarColor: material.Theme.of(context)
+                              .sliderTheme
+                              .valueIndicatorColor,
+                          progressBarColor: material.Theme.of(context)
+                              .sliderTheme
+                              .activeTrackColor,
+                          thumbColor:
+                              material.Theme.of(context).sliderTheme.thumbColor,
                           timeLabelTextStyle: material.Theme.of(context)
                               .textTheme
                               .titleSmall!
@@ -600,13 +650,15 @@ class GesturePlayer extends material.StatelessWidget {
                       material.Column(
                         children: [
                           // Top padding
-                          material.SizedBox(height: Get.mediaQuery.size.height * 0.12),
+                          material.SizedBox(
+                              height: Get.mediaQuery.size.height * 0.12),
                           // Lyrics switch (Sync/Plain buttons)
                           const LyricsSwitch(),
                           // Lyrics widget
                           material.Expanded(
                             child: LyricsWidget(
-                              padding: const material.EdgeInsets.symmetric(horizontal: 20),
+                              padding: const material.EdgeInsets.symmetric(
+                                  horizontal: 20),
                             ),
                           ),
                         ],

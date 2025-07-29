@@ -4,7 +4,7 @@ group: Application/Multimedia
 vendor: anandnet
 packager: anandnet
 license: GPLv3
-url: https://github.com/anandnet/Harmony-Music
+url: https://github.com/anandnet/amadeuse-Music
 
 requires:
   - mpv-libs

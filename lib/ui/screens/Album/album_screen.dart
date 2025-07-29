@@ -2,9 +2,9 @@ import 'package:audio_service/audio_service.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:harmonymusic/models/playling_from.dart';
-import 'package:harmonymusic/models/thumbnail.dart';
-import 'package:harmonymusic/ui/widgets/playlist_album_scroll_behaviour.dart';
+import 'package:amadeusemusic/models/playling_from.dart';
+import 'package:amadeusemusic/models/thumbnail.dart';
+import 'package:amadeusemusic/ui/widgets/playlist_album_scroll_behaviour.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:widget_marquee/widget_marquee.dart';
 
@@ -190,7 +190,7 @@ class AlbumScreen extends StatelessWidget {
                                         children: [
                                           // Bookmark button
                                           Obx(() => IconButton(
-                                            tooltip: albumController
+                                              tooltip: albumController
                                                       .isAddedToLibrary.isFalse
                                                   ? "addToLibrary".tr
                                                   : "removeFromLibrary".tr,
@@ -227,7 +227,7 @@ class AlbumScreen extends StatelessWidget {
                                                   : Icons.bookmark_added))),
                                           // Play button
                                           IconButton(
-                                            tooltip: "play".tr,
+                                              tooltip: "play".tr,
                                               onPressed: () {
                                                 playerController
                                                     .playPlayListSong(
@@ -254,7 +254,7 @@ class AlbumScreen extends StatelessWidget {
                                               )),
                                           // Enqueue button
                                           IconButton(
-                                            tooltip: "enqueueAlbumSongs".tr,
+                                              tooltip: "enqueueAlbumSongs".tr,
                                               onPressed: () {
                                                 Get.find<PlayerController>()
                                                     .enqueueSongList(
@@ -362,10 +362,8 @@ class AlbumScreen extends StatelessWidget {
                                           //       icon: const Icon(
                                           //           Icons.cloud_sync)),
 
-
-
                                           IconButton(
-                                            tooltip: "shareAlbum".tr,
+                                              tooltip: "shareAlbum".tr,
                                               visualDensity:
                                                   const VisualDensity(
                                                       vertical: -3),

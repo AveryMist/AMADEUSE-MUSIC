@@ -1,4 +1,4 @@
-package com.averymist.amadeusemusic
+package com.AveryMist.amadeuse_music
 
 import android.os.Build
 import androidx.annotation.Keep

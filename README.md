@@ -101,6 +101,43 @@ print(moi.dire_bonjour())
 
 </div>
 
+## ⚠️ **État du Développement**
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Status-🚧_EN_DÉVELOPPEMENT-orange?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Compilation-⚠️_PROBLÈMES_TEMPORAIRES-yellow?style=for-the-badge" />
+
+</div>
+
+### 🔧 **Problèmes de Compilation Actuels**
+
+> **Note importante :** Le projet rencontre actuellement des problèmes de compilation Android dus à des conflits de cache Gradle et des métadonnées corrompues. Ces problèmes sont **temporaires** et seront résolus prochainement.
+
+**Problèmes identifiés :**
+- 🔄 **Cache Gradle corrompu** - Métadonnées Kotlin DSL endommagées
+- 📦 **Conflits de dépendances** - Problèmes avec Jetifier et AndroidX
+- 🎨 **Widgets Android** - Ressources drawable temporairement supprimées
+
+**Solutions en cours :**
+- ✅ **Code fonctionnel** - Toutes les fonctionnalités principales sont opérationnelles
+- ✅ **Dépendances GitHub** - Intégration réussie des packages personnalisés
+- 🔄 **Réinitialisation environnement** - Nettoyage complet en cours
+
+**Prochaines étapes :**
+1. Réinitialisation complète de l'environnement Gradle
+2. Mise à jour des widgets Android avec les bonnes ressources
+3. Tests de compilation sur environnement propre
+4. Release APK stable
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/ETA_Résolution-📅_Prochainement-success?style=for-the-badge" />
+
+</div>
+
+---
+
 ## 🛠️ **Mes technologies**
 
 <details>

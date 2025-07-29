@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:harmonymusic/services/permission_service.dart';
+import 'package:amadeusemusic/services/permission_service.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -49,7 +49,6 @@ class SettingsScreenController extends GetxController {
   final backgroundPlayEnabled = true.obs;
   final restorePlaybackSession = false.obs;
   final cacheHomeScreenData = true.obs;
-
 
   final currentVersion = "V1.12.0";
 
@@ -131,7 +130,6 @@ class SettingsScreenController extends GetxController {
     }
     autoDownloadFavoriteSongEnabled.value =
         setBox.get("autoDownloadFavoriteSongEnabled") ?? false;
-
   }
 
   void setAppLanguage(String? val) {
@@ -335,8 +333,6 @@ class SettingsScreenController extends GetxController {
     stopPlyabackOnSwipeAway.value = val;
   }
 
-
-
   // Import/Export functionality
   Future<void> exportData() async {
     try {
@@ -355,12 +351,6 @@ class SettingsScreenController extends GetxController {
       printERROR("Failed to import data: $e");
     }
   }
-
-
-
-
-
-
 
   Future<void> closeAllDatabases() async {
     await Hive.close();

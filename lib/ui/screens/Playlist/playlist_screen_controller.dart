@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:audio_service/audio_service.dart' show MediaItem;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:harmonymusic/models/thumbnail.dart';
-import 'package:harmonymusic/services/permission_service.dart';
+import 'package:amadeusemusic/models/thumbnail.dart';
+import 'package:amadeusemusic/services/permission_service.dart';
 
-import 'package:harmonymusic/ui/screens/Settings/settings_screen_controller.dart';
-import 'package:harmonymusic/ui/widgets/snackbar.dart';
-import 'package:harmonymusic/utils/helper.dart';
+import 'package:amadeusemusic/ui/screens/Settings/settings_screen_controller.dart';
+import 'package:amadeusemusic/ui/widgets/snackbar.dart';
+import 'package:amadeusemusic/utils/helper.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
@@ -39,7 +39,6 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
   final isExporting = false.obs;
   final exportProgress = 0.0.obs;
 
-
   // Title animation
 
   late AnimationController _animationController;
@@ -60,8 +59,9 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
     _scaleAnimation =
         Tween<double>(begin: 0, end: 1.0).animate(animationController);
 
-    _heightAnimation =
-        Tween<double>(begin: 10.0, end: 75.0).animate(CurvedAnimation(parent: animationController, curve: Curves.easeOutBack));
+    _heightAnimation = Tween<double>(begin: 10.0, end: 75.0).animate(
+        CurvedAnimation(
+            parent: animationController, curve: Curves.easeOutBack));
 
     final args = Get.arguments as List;
     final Playlist? playlist = args[0];
@@ -190,8 +190,6 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
         plstbox.deleteFromDisk();
       }
 
-
-
       return true;
     } catch (e) {
       return false;
@@ -210,8 +208,6 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
 
     // Update the playlist thumbnail based on the first song's thumbnail
     _updatePlaylistThumbSongBased();
-
-
   }
 
   @override
@@ -237,8 +233,6 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
 
     // Update the playlist thumbnail based on the first song's thumbnail
     _updatePlaylistThumbSongBased();
-
-
   }
 
   void addNRemoveItemsinList(MediaItem? item,
@@ -265,7 +259,8 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
   }
 
   @override
-  void fetchAlbumDetails(Album? album_,String albumId) {} // Not used in this class
+  void fetchAlbumDetails(
+      Album? album_, String albumId) {} // Not used in this class
 
   /// This function updates the local playlist thumbnail based on the first song's thumbnail
   void _updatePlaylistThumbSongBased() {
@@ -379,7 +374,7 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
       }
 
       printERROR("Error exporting playlist: $e");
-      
+
       String errorMsg = "exportError".tr;
       if (e is FileSystemException) {
         if (e.osError?.errorCode == 13) {
@@ -404,7 +399,7 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
   // Helper method to get the appropriate export directory for each platform
   Future<Directory> _getExportDirectory() async {
     Directory directory;
-    const appFolderName = "HarmonyMusic";
+    const appFolderName = "amadeuseMusic";
 
     try {
       if (Platform.isAndroid) {
@@ -446,11 +441,11 @@ class PlaylistScreenController extends PlaylistAlbumScreenControllerBase
   // Helper method to get a user-friendly location message
   String _getLocationMessage(String path) {
     if (Platform.isAndroid) {
-      return "Downloads/HarmonyMusic";
+      return "Downloads/amadeuseMusic";
     } else if (Platform.isIOS) {
-      return "Files App > HarmonyMusic";
+      return "Files App > amadeuseMusic";
     } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-      return "Downloads/HarmonyMusic";
+      return "Downloads/amadeuseMusic";
     } else {
       return path.split('/').last;
     }

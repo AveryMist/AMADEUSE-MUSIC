@@ -1,11 +1,11 @@
 import 'package:audio_service/audio_service.dart' show MediaItem;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:harmonymusic/base_class/playlist_album_screen_con_base.dart';
-import 'package:harmonymusic/models/album.dart';
-import 'package:harmonymusic/models/playlist.dart';
+import 'package:amadeusemusic/base_class/playlist_album_screen_con_base.dart';
+import 'package:amadeusemusic/models/album.dart';
+import 'package:amadeusemusic/models/playlist.dart';
 
-import 'package:harmonymusic/utils/helper.dart';
+import 'package:amadeusemusic/utils/helper.dart';
 import 'package:hive/hive.dart';
 
 import '../../../mixins/additional_opeartion_mixin.dart';
@@ -31,7 +31,6 @@ class AlbumScreenController extends PlaylistAlbumScreenControllerBase
   Animation<double> get scaleAnimation => _scaleAnimation;
   Animation<double> get heightAnimation => _heightAnimation;
 
-
   @override
   void onInit() {
     super.onInit();
@@ -40,7 +39,8 @@ class AlbumScreenController extends PlaylistAlbumScreenControllerBase
       duration: const Duration(milliseconds: 400),
     );
 
-    _scaleAnimation = Tween<double>(begin: 0, end: 1.0).animate(animationController);
+    _scaleAnimation =
+        Tween<double>(begin: 0, end: 1.0).animate(animationController);
 
     _heightAnimation = Tween<double>(begin: 10.0, end: 90.0).animate(
         CurvedAnimation(
@@ -112,8 +112,6 @@ class AlbumScreenController extends PlaylistAlbumScreenControllerBase
 
       //Update frontend
       Get.find<LibraryAlbumsController>().refreshLib();
-
-
 
       return true;
     } catch (e) {
