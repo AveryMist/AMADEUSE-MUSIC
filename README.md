@@ -4,11 +4,17 @@
 
 # 🎵 Yo ! Moi c'est AMADEUSE MUSIC
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&lines=⚠️+PROJET+ABANDONNÉ+⚠️;Rendu+public+sur+GitHub;Problèmes+de+compilation+à+résoudre;Code+source+disponible+pour+la+communauté" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&lines=🇫🇷+Projet+abandonné+-+Problèmes+compilation;🇬🇧+Abandoned+project+-+Compilation+issues;🇫🇷+Rendu+public+sur+GitHub;🇬🇧+Made+public+on+GitHub;🇫🇷+Issues+Kotlin%2FAndroid+complexes;🇬🇧+Complex+Kotlin%2FAndroid+issues" alt="Typing SVG" />
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-### ⚠️ **Statut du projet**
+### 🚀 **Statut du projet / Project Status**
+
+---
+
+## 🇫🇷 **Version Française**
+
+### 📋 **Statut du projet**
 
 </div>
 
@@ -22,6 +28,7 @@ class AmadeuseMusic:
         self.bio = "App de streaming musical - développement arrêté"
         self.raison_abandon = "Problèmes de compilation complexes à résoudre"
         self.disponibilite = "Code source rendu public sur GitHub"
+        self.inspiration = "Basé sur https://github.com/anandnet/Harmony-Music"
         self.pour_qui = "Développeurs souhaitant reprendre le projet"
         self.problemes = "Dépendances Flutter obsolètes, erreurs de build"
         self.motto = "Le code est là, à vous de jouer maintenant !"
@@ -32,12 +39,53 @@ class AmadeuseMusic:
     def get_status(self):
         return "Projet abandonné mais code source disponible 📂⚠️"
 
+    def get_inspiration(self):
+        return f"Projet inspiré de: {self.inspiration}"
+
     def __str__(self):
         return f"{self.nom} - {self.bio}"
 
 # Instanciation
 moi = AmadeuseMusic()
 print(moi.dire_bonjour())
+print(moi.get_inspiration())
+```
+
+<div align="center">
+
+---
+
+## 🇬🇧 **English Version**
+
+### 📋 **Project Status**
+
+```python
+class AmadeuseMusic:
+    def __init__(self):
+        self.name = "AMADEUSE MUSIC"
+        self.status = "⚠️ ABANDONED"
+        self.reason = "Complex Kotlin/Android compilation issues"
+        self.availability = "Made public on GitHub"
+        self.inspiration = "Based on https://github.com/anandnet/Harmony-Music"
+        self.specific_issues = [
+            "Obsolete Android dependencies",
+            "Material You conflicts",
+            "Gradle build incompatibility",
+            "Kotlin compilation issues"
+        ]
+        self.usage = "Free to use and modify"
+        self.note = "Bug fixes left to contributors"
+
+    def get_status(self):
+        return f"{self.status} - {self.reason}"
+
+    def get_inspiration(self):
+        return f"Project inspired by: {self.inspiration}"
+
+# Instantiation
+project = AmadeuseMusic()
+print(project.get_status())
+print(project.get_inspiration())
 ```
 
 <div align="center">
