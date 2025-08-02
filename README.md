@@ -1,36 +1,36 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=6366F1&height=120&section=header&text=AMADEUSE%20MUSIC&fontSize=50&fontColor=ffffff&animation=twinkling"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=FF6B6B&height=120&section=header&text=AMADEUSE%20MUSIC&fontSize=50&fontColor=ffffff&animation=twinkling"/>
 
 # 🎵 Yo ! Moi c'est AMADEUSE MUSIC
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=App+de+streaming+musical+ultime;YouTube+%26+YouTube+Music+intégrés;Design+Material+You+adaptatif;Téléchargement+%26+écoute+hors+ligne" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&lines=⚠️+PROJET+ABANDONNÉ+⚠️;Rendu+public+sur+GitHub;Problèmes+de+compilation+à+résoudre;Code+source+disponible+pour+la+communauté" alt="Typing SVG" />
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-### 🚀 **Un peu sur moi**
+### ⚠️ **Statut du projet**
 
 </div>
 
-## 🎵 **C'est quoi AMADEUSE MUSIC ?**
+## ⚠️ **Statut : Projet abandonné**
 
 ```python
 class AmadeuseMusic:
     def __init__(self):
         self.nom = "AMADEUSE MUSIC"
-        self.lieu = "Développée avec passion 🎵"
-        self.bio = "App de streaming musical qui révolutionne l'écoute"
-        self.quand_je_joue_pas = "Je télécharge de la musique ou découvre de nouveaux artistes"
-        self.truc_actuel = "Streaming YouTube & YouTube Music - j'aime bien quand ça marche partout !"
-        self.passion = "Transformer l'écoute musicale en expérience magique"
-        self.addiction = "Musique 🎧 (beaucoup trop)"
-        self.motto = "Si ça stream, c'est déjà ça !"
+        self.statut = "⚠️ PROJET ABANDONNÉ ⚠️"
+        self.bio = "App de streaming musical - développement arrêté"
+        self.raison_abandon = "Problèmes de compilation complexes à résoudre"
+        self.disponibilite = "Code source rendu public sur GitHub"
+        self.pour_qui = "Développeurs souhaitant reprendre le projet"
+        self.problemes = "Dépendances Flutter obsolètes, erreurs de build"
+        self.motto = "Le code est là, à vous de jouer maintenant !"
 
     def dire_bonjour(self):
-        return f"Salut ! Je suis {self.nom} 🎵"
+        return f"Salut ! Je suis {self.nom} - {self.statut} 🎵"
 
     def get_status(self):
-        return "En train de streamer avec du bon son 🎧🎵"
+        return "Projet abandonné mais code source disponible 📂⚠️"
 
     def __str__(self):
         return f"{self.nom} - {self.bio}"
@@ -46,7 +46,7 @@ print(moi.dire_bonjour())
 
 </div>
 
-## 🎯 **Mes fonctionnalités**
+## ⚠️ **Statut du projet**
 
 <div align="center">
 
@@ -58,38 +58,38 @@ print(moi.dire_bonjour())
 </td>
 <td width="33%" align="center">
 
-### 🎵 [STREAMING ULTIME](https://github.com/AveryMist/AMADEUSE-MUSIC)
-<img src="https://img.shields.io/badge/Status-✅_DISPONIBLE-success?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Platform-📱_Android_Only-4CAF50?style=for-the-badge&logo=android&logoColor=white" />
+### ⚠️ [PROJET ABANDONNÉ](https://github.com/AveryMist/AMADEUSE-MUSIC)
+<img src="https://img.shields.io/badge/Status-❌_ABANDONNÉ-critical?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Platform-📱_Android_Only-FF6B6B?style=for-the-badge&logo=android&logoColor=white" />
 
-*Streaming musical révolutionnaire*
+*Code source disponible publiquement*
 
-🎧 **Fonctionnalités principales :**
-- 📱 **Android uniquement** (Flutter)
-- 🎵 **Streaming** YouTube & YouTube Music
-- 🎨 **Design Material You** adaptatif
-- 🔒 **Cache intelligent** et qualité audio
-- 📻 **Radio intégrée** et playlists
+⚠️ **Problèmes rencontrés :**
+- 🔧 **Erreurs de compilation** Flutter
+- 📦 **Dépendances obsolètes** à mettre à jour
+- 🎨 **Conflits Material You** non résolus
+- 🔒 **APIs YouTube** nécessitant refactoring
+- 📻 **Plugins audio** incompatibles
 
-[![Download](https://img.shields.io/badge/Télécharger-4CAF50?style=for-the-badge&logo=android&logoColor=white)](https://github.com/AveryMist/AMADEUSE-MUSIC)
+[![Code Source](https://img.shields.io/badge/Code_Source-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AveryMist/AMADEUSE-MUSIC)
 
 </td>
 <td width="33%" align="center">
 
-### 📱 [ÉCOUTE HORS LIGNE](https://github.com/AveryMist/AMADEUSE-MUSIC)
-<img src="https://img.shields.io/badge/Status-✅_ACTIF-success?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Feature-💾_Téléchargement-6366F1?style=for-the-badge&logo=download&logoColor=white" />
+### 🛠️ [POUR DÉVELOPPEURS](https://github.com/AveryMist/AMADEUSE-MUSIC)
+<img src="https://img.shields.io/badge/Status-📂_PUBLIC-warning?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Feature-🔧_À_Réparer-FF9500?style=for-the-badge&logo=tools&logoColor=white" />
 
-*Téléchargement et synchronisation*
+*Projet à reprendre par la communauté*
 
-📚 **Fonctionnalités principales :**
-- 💾 **Téléchargement** pour écoute hors ligne
-- 🔄 **Synchronisation** entre appareils
-- 🎨 **Interface intuitive** et moderne
-- 📝 **Paroles synchronisées** intégrées
-- ⚙️ **Personnalisation** complète
+🔧 **Ce qui vous attend :**
+- 🛠️ **Résolution** des erreurs de build
+- 🔄 **Mise à jour** des dépendances Flutter
+- 🎨 **Correction** des problèmes UI/UX
+- 📝 **Documentation** du code existant
+- ⚙️ **Refactoring** complet nécessaire
 
-[![Découvrir](https://img.shields.io/badge/Découvrir-6366F1?style=for-the-badge&logo=music&logoColor=white)](https://github.com/AveryMist/AMADEUSE-MUSIC)
+[![Contribuer](https://img.shields.io/badge/Contribuer-FF9500?style=for-the-badge&logo=code&logoColor=white)](https://github.com/AveryMist/AMADEUSE-MUSIC)
 
 </td>
 </tr>
@@ -100,43 +100,6 @@ print(moi.dire_bonjour())
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 </div>
-
-## ⚠️ **État du Développement**
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Status-🚧_EN_DÉVELOPPEMENT-orange?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Compilation-⚠️_PROBLÈMES_TEMPORAIRES-yellow?style=for-the-badge" />
-
-</div>
-
-### 🔧 **Problèmes de Compilation Actuels**
-
-> **Note importante :** Le projet rencontre actuellement des problèmes de compilation Android dus à des conflits de cache Gradle et des métadonnées corrompues. Ces problèmes sont **temporaires** et seront résolus prochainement.
-
-**Problèmes identifiés :**
-- 🔄 **Cache Gradle corrompu** - Métadonnées Kotlin DSL endommagées
-- 📦 **Conflits de dépendances** - Problèmes avec Jetifier et AndroidX
-- 🎨 **Widgets Android** - Ressources drawable temporairement supprimées
-
-**Solutions en cours :**
-- ✅ **Code fonctionnel** - Toutes les fonctionnalités principales sont opérationnelles
-- ✅ **Dépendances GitHub** - Intégration réussie des packages personnalisés
-- 🔄 **Réinitialisation environnement** - Nettoyage complet en cours
-
-**Prochaines étapes :**
-1. Réinitialisation complète de l'environnement Gradle
-2. Mise à jour des widgets Android avec les bonnes ressources
-3. Tests de compilation sur environnement propre
-4. Release APK stable
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/ETA_Résolution-📅_Prochainement-success?style=for-the-badge" />
-
-</div>
-
----
 
 ## 🛠️ **Mes technologies**
 
@@ -348,16 +311,16 @@ l'expérience musicale
 
 <div align="center">
 
-### 🌟 **"La musique, c'est la vie... et moi je la rends accessible !"** 🌟
+### ⚠️ **"Projet abandonné mais code disponible pour la communauté !"** ⚠️
 
 ![GitHub](https://img.shields.io/badge/Made_with-❤️_by_AveryMyst-FF6B6B?style=for-the-badge)
-![Profile Views](https://komarev.com/ghpvc/?username=AveryMist&color=6366f1&style=for-the-badge&label=Profile+Views)
+![Profile Views](https://komarev.com/ghpvc/?username=AveryMist&color=FF6B6B&style=for-the-badge&label=Profile+Views)
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-*N'hésite pas à télécharger l'app ou à me ping si tu veux discuter musique !* ✨
+*Le projet est abandonné mais le code source est public - à vous de jouer maintenant !* 🛠️
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=6366F1&height=120&section=footer&text=Merci%20d'être%20passé%20!&fontSize=30&fontColor=ffffff&animation=twinkling"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=FF6B6B&height=120&section=footer&text=Code%20source%20disponible%20!&fontSize=30&fontColor=ffffff&animation=twinkling"/>
 
 </div>
 
