@@ -220,7 +220,7 @@ console.log(amadeuseMusic.sayHello())
 </details>
 
 <details>
-<summary><h2>🛠️ Technical Stack</h2>
+<summary><h2>🛠️ Technical Stack</h2></summary>
 
 <div align="center">
 
@@ -359,7 +359,7 @@ flutter build linux --release
 </details>
 
 <details>
-<summary><h2>🌍 Translation & Localization</h2>
+<summary><h2>🌍 Translation & Localization</h2></summary>
 
 <div align="center">
 
