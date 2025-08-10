@@ -824,5 +824,3 @@ We extend our gratitude to the original developers for creating such an amazing 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,24,30&height=120&section=footer&text=Thank%20you%20for%20choosing%20AMADEUSE%20MUSIC!&fontSize=30&fontColor=ffffff&animation=twinkling"/>
 
 </div>
-
-
