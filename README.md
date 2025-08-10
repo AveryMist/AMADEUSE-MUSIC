@@ -177,6 +177,27 @@ console.log(amadeuseMusic.sayHello())
 
 </div>
 
+## 📸 Captures d’écran
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%" height="10px"/>
+
+<table>
+<tr>
+<td align="center" width="20%"><img src="image_readme/1.jpg" alt="Capture 1" width="100%"/></td>
+<td align="center" width="20%"><img src="image_readme/2.jpg" alt="Capture 2" width="100%"/></td>
+<td align="center" width="20%"><img src="image_readme/3.jpg" alt="Capture 3" width="100%"/></td>
+<td align="center" width="20%"><img src="image_readme/4.jpg" alt="Capture 4" width="100%"/></td>
+<td align="center" width="20%"><img src="image_readme/5.jpg" alt="Capture 5" width="100%"/></td>
+</tr>
+<tr>
+<td align="center" width="20%"><img src="image_readme/6.jpg" alt="Capture 6" width="100%"/></td>
+<td align="center" width="20%"><img src="image_readme/7.jpg" alt="Capture 7" width="100%"/></td>
+<td align="center" width="20%"><img src="image_readme/8.jpg" alt="Capture 8" width="100%"/></td>
+<td align="center" width="20%"><img src="image_readme/9.jpg" alt="Capture 9" width="100%"/></td>
+<td align="center" width="20%"><img src="image_readme/10.jpg" alt="Capture 10" width="100%"/></td>
+</tr>
+</table>
+
 ## 🛠️ **Technical Stack**
 
 <div align="center">
