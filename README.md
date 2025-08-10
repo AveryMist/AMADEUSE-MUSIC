@@ -40,6 +40,33 @@
 
 </div>
 
+<a id="top"></a>
+<a id="language-selector"></a>
+<div align="center">
+  <p>
+    <strong>🌐 Language • Langue:</strong>
+    <a href="#fr">🇫🇷 Français</a> •
+    <a href="#en">🇺🇸 English</a>
+  </p>
+</div>
+
+<details>
+  <summary>📚 Table of Contents</summary>
+
+- 🇫🇷 [Français](#fr)
+- 🇺🇸 [English](#en)
+</details>
+
+<div align="center">
+  <p>
+    <a href="https://github.com/AveryMist/AMADEUSE-MUSIC/releases/latest"><img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20Download-Latest%20Release-FF6B6B?style=for-the-badge&logo=github&logoColor=white" alt="Download Latest"/></a>
+    <a href="https://f-droid.org/packages/com.amadeuse.music"><img src="https://img.shields.io/badge/F--Droid-Install-1976D2?style=for-the-badge&logo=fdroid&logoColor=white" alt="F-Droid"/></a>
+    <a href="https://hosted.weblate.org/engage/amadeuse-music/"><img src="https://img.shields.io/badge/%F0%9F%8C%8D%20Translate-Weblate-4CAF50?style=for-the-badge&logo=weblate&logoColor=white" alt="Translate on Weblate"/></a>
+    <a href="https://discord.gg/GEZCQwczMY"><img src="https://img.shields.io/badge/%F0%9F%92%AC%20Join-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord"/></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License"/></a>
+  </p>
+</div>
+
 ---
 
 <div align="center">
@@ -427,6 +454,7 @@ You can contribute to translations by clicking the status image above or visitin
 
 ---
 
+<a id="fr"></a>
 ## 🌍 **SECTION FRANÇAISE** | 🇫🇷 **VERSION FRANÇAISE**
 
 <div align="center">
@@ -534,8 +562,11 @@ Nous accueillons chaleureusement les contributions de la communauté francophone
 
 </div>
 
+<p align="right"><a href="#top">⬆️ Retour en haut</a></p>
+
 ---
 
+<a id="en"></a>
 ## 🌍 **ENGLISH SECTION** | 🇺🇸 **ENGLISH VERSION**
 
 <div align="center">
@@ -719,6 +750,8 @@ flutter test --coverage
 **Join our Discord community for English support!**
 
 </div>
+
+<p align="right"><a href="#top">⬆️ Back to top</a></p>
 
 ---
 
