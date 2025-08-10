@@ -150,8 +150,8 @@
   "resetToDefault": "Restore default settings",
   "resetToDefaultDes": "Reset app settings to default (Restart required)",
   "resetToDefaultMsg": "Settings reset to default completed, Please restart app",
-  "github": "GitHub",
-  "githubDes": "View GitHub source code \nif you like this project, don't forget to give a ⭐",
+
+  "aboutDes": "Modern and elegant music application for an optimal listening experience",
   "by": "by",
   "urlSearchDes": "Url detected click on it to open/play associated content",
   "search": "Search",

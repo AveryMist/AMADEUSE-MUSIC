@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
     if (!GetPlatform.isDesktop) Get.put(AppLinksController());
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     return GetMaterialApp(
-        title: 'Harmony Music',
+        title: 'AMADEUSE MUSIC',
         home: const Home(),
         debugShowCheckedModeBanner: false,
         translations: Languages(),

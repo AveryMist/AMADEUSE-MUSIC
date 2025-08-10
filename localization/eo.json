@@ -132,9 +132,7 @@
     "linkAlert": "Ligiĝis sukcese!",
     "clearImgCache": "Viŝi bildan kaŝmemoron",
     "clearImgCacheDes": "Alklaku ĉi tie por viŝi kaŝmemorigitajn bildetojn/bildojn. (Ne rekomendita krom se vi volas refreŝigi kaŝmemorigitajn bildajn datumojn)",
-    "disabled": "Malebligita",
-    "github": "GitHub",
-    "for1": "por",
+    "disabled": "Malebligita","for1": "por",
     "songRemovedfromQueueCurrSong": "Vi ne povas forigi nuntempe ludantan kanton",
     "songAlreadyExists": "Kanto jam ekzistas!",
     "backgroundPlay": "Fona muzikludado",
@@ -152,8 +150,6 @@
     "notaValidLink": "Ne valida ligilo!",
     "selectAuthInsMsg": "Bonvolu elekti Aŭtentigadan Instancon!",
     "allFieldsReqMsg": "Ĉiuj kampoj estas bezonataj",
-    "backgroundPlayDes": "Ebligi/Malebligi muzikon ludante en la fono (Aplikaĵo estas alirebla de taskopleto kiam aplikaĵo funkcias fone)",
-    "githubDes": "Vidi GitHub fontkodon\nse vi ŝatas ĉi tiun projekton, ne forgesu doni ⭐",
-    "errorOccuredAlert": "Iu eraro okazis!",
+    "backgroundPlayDes": "Ebligi/Malebligi muzikon ludante en la fono (Aplikaĵo estas alirebla de taskopleto kiam aplikaĵo funkcias fone)","errorOccuredAlert": "Iu eraro okazis!",
     "resetblacklistedplaylist": "Rekomencigi nigralistigitajn ludlistojn"
 }

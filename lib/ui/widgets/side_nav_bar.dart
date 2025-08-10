@@ -24,9 +24,9 @@ class SideNavBar extends StatelessWidget {
                         homeScreenController.tabIndex.value, //_selectedIndex,
                     onDestinationSelected:
                         homeScreenController.onSideBarTabSelected,
-                    minWidth: 60,
-                    leading: SizedBox(height: size.height < 750 ? 30 : 60),
-                    minExtendedWidth: 250,
+                    minWidth: 76,
+                    leading: SizedBox(height: size.height < 750 ? 45 : 85),
+                    minExtendedWidth: 290,
                     extended: !isMobileOrTabScreen,
                     labelType: isMobileOrTabScreen
                         ? NavigationRailLabelType.all
@@ -34,21 +34,20 @@ class SideNavBar extends StatelessWidget {
                     //backgroundColor: Colors.green,
                     destinations: <NavigationRailDestination>[
                       railDestination(
-                          "home".tr, isMobileOrTabScreen, Icons.home),
+                          "home".tr, isMobileOrTabScreen, Icons.home_outlined, Icons.home),
                       railDestination(
-                          "songs".tr, isMobileOrTabScreen, Icons.art_track),
+                          "songs".tr, isMobileOrTabScreen, Icons.music_note_outlined, Icons.music_note),
                       railDestination("playlists".tr, isMobileOrTabScreen,
-                          Icons.featured_play_list),
+                          Icons.playlist_play_outlined, Icons.playlist_play),
                       railDestination(
-                          "albums".tr, isMobileOrTabScreen, Icons.album),
+                          "albums".tr, isMobileOrTabScreen, Icons.album_outlined, Icons.album),
                       railDestination(
-                          "artists".tr, isMobileOrTabScreen, Icons.people),
-                      //railDestination("Settings")
-                      const NavigationRailDestination(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                        icon: Icon(Icons.settings),
-                        label: SizedBox.shrink(),
-                        selectedIcon: Icon(Icons.settings),
+                          "artists".tr, isMobileOrTabScreen, Icons.person_outline, Icons.person),
+                      NavigationRailDestination(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        icon: const Icon(Icons.settings_outlined),
+                        label: const SizedBox.shrink(),
+                        selectedIcon: const Icon(Icons.settings),
                       )
                     ],
                   ),
@@ -58,13 +57,13 @@ class SideNavBar extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 100.0),
               child: SideBarAnimated(
                 onTap: homeScreenController.onSideBarTabSelected,
-                sideBarColor: Theme.of(context).primaryColor.withAlpha(250),
-                animatedContainerColor: Theme.of(context).colorScheme.secondary,
+                sideBarColor: Theme.of(context).colorScheme.surface.withOpacity(0.95),
+                animatedContainerColor: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.8),
                 hoverColor:
-                    Theme.of(context).colorScheme.secondary.withAlpha(180),
-                splashColor: Theme.of(context).colorScheme.secondary,
+                    Theme.of(context).colorScheme.primaryContainer.withOpacity(0.6),
+                splashColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
                 highlightColor:
-                    Theme.of(context).colorScheme.secondary.withAlpha(180),
+                    Theme.of(context).colorScheme.primaryContainer.withOpacity(0.4),
                 widthSwitch: 800,
                 mainLogoImage: 'assets/icons/icon.png',
                 sidebarItems: [
@@ -74,13 +73,13 @@ class SideNavBar extends StatelessWidget {
                     text: 'home'.tr,
                   ),
                   SideBarItem(
-                    iconSelected: Icons.audiotrack,
-                    iconUnselected: Icons.audiotrack,
+                    iconSelected: Icons.music_note,
+                    iconUnselected: Icons.music_note_outlined,
                     text: 'songs'.tr,
                   ),
                   SideBarItem(
-                    iconSelected: Icons.library_music,
-                    iconUnselected: Icons.library_music_outlined,
+                    iconSelected: Icons.playlist_play,
+                    iconUnselected: Icons.playlist_play_outlined,
                     text: 'playlists'.tr,
                   ),
                   SideBarItem(
@@ -90,6 +89,7 @@ class SideNavBar extends StatelessWidget {
                   ),
                   SideBarItem(
                     iconSelected: Icons.person,
+                    iconUnselected: Icons.person_outline,
                     text: 'artists'.tr,
                   ),
                   SideBarItem(
@@ -104,22 +104,23 @@ class SideNavBar extends StatelessWidget {
   }
 
   NavigationRailDestination railDestination(
-      String label, bool isMobileOrTabScreen, IconData icon) {
+      String label, bool isMobileOrTabScreen, IconData unselectedIcon, [IconData? selectedIcon]) {
     return isMobileOrTabScreen
         ? NavigationRailDestination(
             icon: const SizedBox.shrink(),
             label: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
+                padding: const EdgeInsets.symmetric(vertical: 8),
                 child: isMobileOrTabScreen
-                    ? RotatedBox(quarterTurns: -1, child: Text(label))
+                    ? RotatedBox(quarterTurns: -1, child: Text(label, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500)))
                     : Text(label)),
           )
         : NavigationRailDestination(
-            icon: Icon(icon),
+            icon: Icon(unselectedIcon),
+            selectedIcon: selectedIcon != null ? Icon(selectedIcon) : Icon(unselectedIcon),
             label: Text(label),
-            padding: const EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             indicatorShape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            indicatorColor: Colors.amber);
+                borderRadius: BorderRadius.all(Radius.circular(12))),
+            indicatorColor: Colors.transparent);
   }
 }

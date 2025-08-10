@@ -8,6 +8,7 @@ import 'package:widget_marquee/widget_marquee.dart';
 import '../../models/playlist.dart';
 import '../player/player_controller.dart';
 import '../screens/Settings/settings_screen_controller.dart';
+import '../themes/modern_button_theme.dart';
 import 'add_to_playlist.dart';
 import 'image_widget.dart';
 import 'snackbar.dart';
@@ -182,8 +183,9 @@ class SongListTile extends StatelessWidget with RemoveSongFromPlaylistMixin {
                     ],
                   ),
                   if (GetPlatform.isDesktop)
-                    IconButton(
-                        splashRadius: 20,
+                    ModernButtonTheme.modernIconButton(
+                        context: context,
+                        iconSize: 20,
                         onPressed: () {
                           showModalBottomSheet(
                             constraints: const BoxConstraints(maxWidth: 500),
@@ -203,7 +205,7 @@ class SongListTile extends StatelessWidget with RemoveSongFromPlaylistMixin {
                           ).whenComplete(
                               () => Get.delete<SongInfoController>());
                         },
-                        icon: const Icon(Icons.more_vert))
+                        icon: Icons.more_vert)
                 ],
               ),
             ),

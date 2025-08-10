@@ -34,6 +34,9 @@ class ArtistScreenBN extends StatelessWidget {
             isScrollable: true,
             controller: artistScreenController.tabController!,
             onTap: artistScreenController.onDestinationSelected,
+            labelPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+            labelStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            unselectedLabelStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
             tabs:
                 ["about".tr, "songs".tr, "videos".tr, "albums".tr, "singles".tr]
                     .map((e) => Tab(

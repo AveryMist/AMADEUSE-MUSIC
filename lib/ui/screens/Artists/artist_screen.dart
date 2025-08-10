@@ -90,6 +90,8 @@ class ArtistScreen extends StatelessWidget {
                                       .titleMedium!
                                       .color,
                                 ),
+                                splashRadius: 20,
+                                visualDensity: const VisualDensity(horizontal: -1),
                                 onPressed: () {
                                   Get.nestedKey(ScreenNavigationSetup.id)!
                                       .currentState!
@@ -261,11 +263,12 @@ class AboutArtist extends StatelessWidget {
                                 IconButton(
                                     icon: const Icon(
                                       Icons.share,
-                                      size: 20,
+                                      size: 22,
                                     ),
-                                    splashRadius: 18,
+                                    splashRadius: 20,
+                                    visualDensity: const VisualDensity(horizontal: -1),
                                     onPressed: () => Share.share(
-                                        "https://music.youtube.com/channel/${artistScreenController.artist_.browseId}")),
+                                        "https://music.youtube.com/channel/${artistScreenController.artist_.browseId}"))
                               ],
                             ),
                           )

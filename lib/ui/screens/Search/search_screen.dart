@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'components/search_item.dart';
 import '/ui/screens/Settings/settings_screen_controller.dart';
+import '../../themes/modern_button_theme.dart';
 import '../../widgets/modified_text_field.dart';
 import '/ui/navigator.dart';
 import 'search_screen_controller.dart';
@@ -29,19 +30,20 @@ class SearchScreen extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(top: topPadding),
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.arrow_back_ios_new,
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .color,
-                            ),
+                          child: ModernButtonTheme.modernIconButton(
+                            context: context,
+                            icon: Icons.arrow_back_ios_new,
+                            iconSize: 24,
+                            color: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .color,
                             onPressed: () {
                               Get.nestedKey(ScreenNavigationSetup.id)!
                                   .currentState!
                                   .pop();
                             },
+                            tooltip: "Retour",
                           ),
                         ),
                       ],
@@ -87,11 +89,12 @@ class SearchScreen extends StatelessWidget {
                           contentPadding: const EdgeInsets.only(left: 5),
                           focusColor: Colors.white,
                           hintText: "searchDes".tr,
-                          suffix: IconButton(
+                          suffix: ModernButtonTheme.modernIconButton(
+                            context: context,
                             onPressed: searchScreenController.reset,
-                            icon: const Icon(Icons.close),
-                            splashRadius: 16,
-                            iconSize: 19,
+                            icon: Icons.close,
+                            iconSize: 22,
+                            tooltip: "Effacer",
                           )),
                     ),
                     Expanded(

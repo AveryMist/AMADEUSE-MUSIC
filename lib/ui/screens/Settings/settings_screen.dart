@@ -46,44 +46,7 @@ class SettingsScreen extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.only(bottom: 200, top: 20),
             children: [
-              Obx(
-                () => settingsController.isNewVersionAvailable.value
-                    ? Padding(
-                        padding: const EdgeInsets.only(
-                            top: 8.0, right: 10, bottom: 8.0),
-                        child: Material(
-                          type: MaterialType.transparency,
-                          child: ListTile(
-                            onTap: () {
-                              launchUrl(
-                                Uri.parse(
-                                  'https://github.com/anandnet/Harmony-Music/releases/latest',
-                                ),
-                                mode: LaunchMode.externalApplication,
-                              );
-                            },
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            tileColor: Theme.of(context).colorScheme.secondary,
-                            contentPadding:
-                                const EdgeInsets.only(left: 8, right: 10),
-                            leading:
-                                const CircleAvatar(child: Icon(Icons.download)),
-                            title: Text("newVersionAvailable".tr),
-                            visualDensity: const VisualDensity(horizontal: -2),
-                            subtitle: Text(
-                              "goToDownloadPage".tr,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                      color: Colors.white70, fontSize: 13),
-                            ),
-                          ),
-                        ),
-                      )
-                    : const SizedBox.shrink(),
-              ),
+
               CustomExpansionTile(
                 title: "personalisation".tr,
                 icon: Icons.palette,
@@ -653,33 +616,21 @@ class SettingsScreen extends StatelessWidget {
                 icon: Icons.info,
                 title: "appInfo".tr,
                 children: [
-                  ListTile(
-                    contentPadding: const EdgeInsets.only(left: 5, right: 10),
-                    title: Text("github".tr),
-                    subtitle: Text(
-                      "${"githubDes".tr}${((Get.find<PlayerController>().playerPanelMinHeight.value) == 0 || !isBottomNavActive) ? "" : "\n\n${settingsController.currentVersion} ${"by".tr} anandnet"}",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    isThreeLine: true,
-                    onTap: () {
-                      launchUrl(
-                        Uri.parse(
-                          'https://github.com/anandnet/Harmony-Music',
-                        ),
-                        mode: LaunchMode.externalApplication,
-                      );
-                    },
-                  ),
                   const Divider(),
                   SizedBox(
                     child: Column(
                       children: [
                         Text(
-                          "Harmony Music",
+                          "AMADEUSE MUSIC",
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         Text(settingsController.currentVersion,
-                            style: Theme.of(context).textTheme.titleMedium)
+                            style: Theme.of(context).textTheme.titleMedium),
+                        const SizedBox(height: 10),
+                        Text(
+                          "${"by".tr} AveryMist",
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
                       ],
                     ),
                   ),
@@ -690,7 +641,7 @@ class SettingsScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
             child: Text(
-              "${settingsController.currentVersion} ${"by".tr} anandnet",
+              "${settingsController.currentVersion} ${"by".tr} AveryMist",
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ),

@@ -99,11 +99,12 @@ class SearchResultScreenBN extends StatelessWidget {
                                   Theme.of(context).colorScheme.secondary,
                               borderWidth: 0,
                               buttonMargin: const EdgeInsets.only(
-                                  right: 10, left: 4, top: 4, bottom: 4),
+                                  right: 12, left: 6, top: 4, bottom: 4),
                               borderColor: Colors.black,
                               labelStyle: TextStyle(
                                 color: Theme.of(context).primaryColor,
                                 fontWeight: FontWeight.bold,
+                                fontSize: 14,
                               ),
                               unselectedLabelStyle: TextStyle(
                                 color: Theme.of(context)
@@ -111,6 +112,7 @@ class SearchResultScreenBN extends StatelessWidget {
                                     .titleMedium
                                     ?.color!,
                                 fontWeight: FontWeight.bold,
+                                fontSize: 12,
                               ),
                               // Add your tabs here
                               tabs: [

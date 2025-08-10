@@ -36,7 +36,7 @@
     "status": "État",
     "enabled": "Activé",
     "disabled": "Désactivé",
-    "githubDes": "Voir le code source GitHub\nSi vous aimez ce projet, n'oubliez pas de donner une ⭐",
+    "aboutDes": "Application de musique moderne et élégante pour une expérience d'écoute optimale",
     "search": "Recherche",
     "searchRes": "Résultats de la Recherche",
     "videos": "Vidéos",
@@ -85,7 +85,7 @@
     "high": "Élevée",
     "equalizerDes": "Ouvrir l'égaliseur du système",
     "ignoreBatOpt": "Ignorer l'optimisation de la batterie",
-    "github": "GitHub",
+  
     "by": "par",
     "searchDes": "Titres, Playlist, Album ou Artiste",
     "for1": "pour",

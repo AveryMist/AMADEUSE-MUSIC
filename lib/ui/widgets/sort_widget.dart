@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:harmonymusic/ui/screens/Library/library_controller.dart';
+import '../themes/modern_button_theme.dart';
 
 import 'additional_operation_dialog.dart';
 import 'modified_text_field.dart';
@@ -110,23 +111,15 @@ class SortWidget extends StatelessWidget {
             const SizedBox(height: 24),
             Center(
               child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                  foregroundColor: Theme.of(context).colorScheme.onSecondary,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                icon: const Icon(Icons.file_open),
-                label: Text("selectFile".tr),
+                style: ModernButtonTheme.elevatedButtonStyle(context),
                 onPressed: () {
                   Get.find<LibraryPlaylistsController>()
                       .importPlaylistFromJson(context);
                   Navigator.pop(context);
                   Navigator.pop(context);
                 },
+                icon: const Icon(Icons.file_open),
+                label: Text("selectFile".tr),
               ),
             ),
           ],
@@ -305,14 +298,15 @@ class SortWidget extends StatelessWidget {
                         hintText: "search".tr,
                         suffixIconColor:
                             Theme.of(context).colorScheme.secondary,
-                        suffixIcon: IconButton(
-                          splashRadius: 10,
-                          iconSize: 20,
-                          icon: const Icon(Icons.cancel),
+                        suffixIcon: ModernButtonTheme.modernIconButton(
+                          context: context,
+                          iconSize: 16,
+                          icon: Icons.cancel,
                           onPressed: () {
                             controller.toggleSearch();
                             onSearchClose!(tag);
                           },
+                          tooltip: "Annuler la recherche",
                         ),
                       ),
                     ),
@@ -331,17 +325,20 @@ class SortWidget extends StatelessWidget {
     bool? isSelected,
     Function()? onPressed,
   }) {
-    return IconButton(
-      icon: Icon(icon),
-      padding: const EdgeInsets.all(0),
-      color: isSelected == null || isSelected == true
-          ? Theme.of(Get.context!).textTheme.bodySmall!.color
-          : Theme.of(Get.context!).colorScheme.secondary,
-      iconSize: 20,
-      splashRadius: 20,
-      visualDensity: const VisualDensity(horizontal: -3, vertical: -3),
-      onPressed: onPressed,
-      tooltip: tooltip,
+    return Builder(
+      builder: (context) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6.0),
+        child: ModernButtonTheme.modernIconButton(
+          context: context,
+          icon: icon,
+          iconSize: 18,
+          color: isSelected == null || isSelected == true
+              ? Theme.of(context).textTheme.bodySmall!.color
+              : Theme.of(context).colorScheme.secondary,
+          onPressed: onPressed,
+          tooltip: tooltip,
+        ),
+      ),
     );
   }
 }

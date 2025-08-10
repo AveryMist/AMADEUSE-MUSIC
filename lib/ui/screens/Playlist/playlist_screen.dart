@@ -121,6 +121,8 @@ class PlaylistScreen extends StatelessWidget {
                           width: 50,
                           child: IconButton(
                             tooltip: "back".tr,
+                              splashRadius: 20,
+                              visualDensity: const VisualDensity(horizontal: -1),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
@@ -270,7 +272,8 @@ class PlaylistScreen extends StatelessWidget {
                                                           .isFalse
                                                       ? "addToLibrary".tr
                                                       : "removeFromLibrary".tr,
-                                                  splashRadius: 10,
+                                                  splashRadius: 12,
+                                                  visualDensity: const VisualDensity(horizontal: -1),
                                                   onPressed: () {
                                                     final add = playlistController
                                                         .isAddedToLibrary.isFalse;
@@ -308,6 +311,8 @@ class PlaylistScreen extends StatelessWidget {
                                           // Play button
                                           IconButton(
                                             tooltip: "play".tr,
+                                              splashRadius: 12,
+                                              visualDensity: const VisualDensity(horizontal: -1),
                                               onPressed: () {
                                                 playerController.playPlayListSong(
                                                     List<MediaItem>.from(
@@ -330,6 +335,8 @@ class PlaylistScreen extends StatelessWidget {
                                           // Enqueue button
                                           IconButton(
                                               tooltip: "enqueueSongs".tr,
+                                              splashRadius: 12,
+                                              visualDensity: const VisualDensity(horizontal: -1),
                                               onPressed: () {
                                                 Get.find<PlayerController>()
                                                     .enqueueSongList(
@@ -385,7 +392,9 @@ class PlaylistScreen extends StatelessWidget {
                                             final id = playlistController
                                                 .playlist.value.playlistId;
                                             return IconButton(
-                                              tooltip: "downloadPlaylist".tr,
+                                              tooltip: "downloadPlaylistSongs".tr,
+                                              splashRadius: 12,
+                                              visualDensity: const VisualDensity(horizontal: -1),
                                               onPressed: () {
                                                 if (playlistController
                                                     .isDownloaded.isTrue) {
@@ -454,6 +463,8 @@ class PlaylistScreen extends StatelessWidget {
                                             IconButton(
                                                 tooltip:
                                                     "syncPlaylistSongs".tr,
+                                                splashRadius: 12,
+                                                visualDensity: const VisualDensity(horizontal: -1),
                                                 onPressed: () {
                                                   playlistController
                                                       .syncPlaylistSongs();
@@ -467,9 +478,10 @@ class PlaylistScreen extends StatelessWidget {
                                                     "blacklistPipedPlaylist".tr,
                                                 icon: const Icon(
                                                   Icons.block,
-                                                  size: 20,
+                                                  size: 22,
                                                 ),
-                                                splashRadius: 10,
+                                                splashRadius: 12,
+                                                visualDensity: const VisualDensity(horizontal: -1),
                                                 onPressed: () {
                                                   Get.nestedKey(
                                                           ScreenNavigationSetup
@@ -496,9 +508,9 @@ class PlaylistScreen extends StatelessWidget {
                                               tooltip:
                                                   "sharePlaylist".tr,
                                               visualDensity: const VisualDensity(
-                                                vertical: -3,
+                                                horizontal: -1, vertical: -2,
                                               ),
-                                              splashRadius: 10,
+                                              splashRadius: 12,
                                               onPressed: () {
                                                 final content = playlistController
                                                     .playlist.value;

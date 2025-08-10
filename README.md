@@ -427,6 +427,301 @@ You can contribute to translations by clicking the status image above or visitin
 
 ---
 
+## 🌍 **SECTION FRANÇAISE** | 🇫🇷 **VERSION FRANÇAISE**
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&weight=700&size=24&duration=3000&pause=800&color=FF6B6B&center=true&vCenter=true&width=800&lines=🇫🇷+Bienvenue+dans+AMADEUSE+MUSIC;🎵+Streaming+Musical+Cross-Platform;📱+Application+Flutter+Open+Source;🚀+Musique+pour+tout+le+monde+!" alt="French Typing Animation" />
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%" height="10px"/>
+
+</div>
+
+### 🎵 **À Propos d'AMADEUSE MUSIC** (Français)
+
+**AMADEUSE MUSIC** est une application de streaming musical **gratuite**, **open source** et **cross-platform** développée avec Flutter. Notre mission est de rendre la musique accessible à tous, partout dans le monde, sans publicités ni restrictions.
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+### 🌟 **Pourquoi Choisir AMADEUSE MUSIC ?**
+- 🎵 **Streaming YouTube Music** intégré
+- 🚫 **Aucune publicité** - Expérience pure
+- 🔓 **Aucune connexion requise** - Accès instantané
+- 💾 **Cache automatique** des chansons
+- 📂 **Gestion des playlists** avancée
+- 🎨 **Thèmes dynamiques** personnalisables
+- 🌐 **Support multilingue** (traduit en plusieurs langues)
+- ⚡ **Performances optimales** Flutter
+
+</td>
+<td align="center" width="50%">
+
+### 🚀 **Fonctionnalités Avancées**
+- 📱 **Support Cross-Platform** (Android, Windows, Linux)
+- 🎧 **Lecture en arrière-plan** avec contrôles système
+- 📻 **Fonction Radio** intégrée
+- 🎤 **Paroles synchronisées** et texte simple
+- ⏭️ **Saut des silences** automatique
+- 🎛️ **Égaliseur audio** intégré
+- 🚗 **Android Auto** compatible
+- ⏰ **Minuteur de sommeil** programmable
+- 📤 **Import via partage** depuis YouTube Music
+
+</td>
+</tr>
+</table>
+
+</div>
+
+### 📥 **Installation** (Français)
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+#### 📱 **Utilisateurs finaux**
+1. **Téléchargez** l'APK depuis [GitHub Releases](https://github.com/AveryMist/AMADEUSE-MUSIC/releases/latest)
+2. **Autorisez** l'installation d'applications externes sur Android
+3. **Installez** et **profitez** de votre musique !
+
+⚠️ **Important :** Choisissez une seule source de téléchargement pour les mises à jour automatiques.
+
+</td>
+<td align="center" width="50%">
+
+#### 💻 **Développeurs**
+```bash
+# Cloner le projet
+git clone https://github.com/AveryMist/AMADEUSE-MUSIC.git
+
+# Installer les dépendances
+flutter pub get
+
+# Lancer l'application
+flutter run
+```
+
+</td>
+</tr>
+</table>
+
+</div>
+
+### 🤝 **Contribution** (Français)
+
+Nous accueillons chaleureusement les contributions de la communauté francophone !
+
+- 🐛 **Rapports de bugs** - Signalez les problèmes rencontrés
+- ✨ **Suggestions de fonctionnalités** - Proposez vos idées
+- 🌐 **Traductions** - Aidez-nous à améliorer la version française
+- 🔧 **Contributions code** - Participez au développement
+
+### 📞 **Support en Français**
+
+<div align="center">
+
+<a href="https://discord.gg/GEZCQwczMY">
+<img src="https://img.shields.io/badge/Discord_FR-Communauté_Française-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord FR"/>
+</a>
+
+**Rejoignez notre communauté Discord pour un support en français !**
+
+</div>
+
+---
+
+## 🌍 **ENGLISH SECTION** | 🇺🇸 **ENGLISH VERSION**
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&weight=700&size=24&duration=3000&pause=800&color=4CAF50&center=true&vCenter=true&width=800&lines=🇺🇸+Welcome+to+AMADEUSE+MUSIC;🎵+Cross-Platform+Music+Streaming;📱+Open+Source+Flutter+Application;🚀+Music+for+Everyone+!" alt="English Typing Animation" />
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%" height="10px"/>
+
+</div>
+
+### 🎵 **About AMADEUSE MUSIC** (English)
+
+**AMADEUSE MUSIC** is a **free**, **open-source**, and **cross-platform** music streaming application built with Flutter. Our mission is to make music accessible to everyone, everywhere, without ads or restrictions.
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+### 🌟 **Why Choose AMADEUSE MUSIC?**
+- 🎵 **Integrated YouTube Music** streaming
+- 🚫 **No advertisements** - Pure experience
+- 🔓 **No login required** - Instant access
+- 💾 **Automatic song caching** while playing
+- 📂 **Advanced playlist management**
+- 🎨 **Customizable dynamic themes**
+- 🌐 **Multi-language support** (translated into multiple languages)
+- ⚡ **Optimized Flutter performance**
+
+</td>
+<td align="center" width="50%">
+
+### 🚀 **Advanced Features**
+- 📱 **Cross-Platform Support** (Android, Windows, Linux)
+- 🎧 **Background playback** with system controls
+- 📻 **Built-in Radio** functionality
+- 🎤 **Synced & Plain lyrics** support
+- ⏭️ **Automatic silence skipping**
+- 🎛️ **Built-in audio equalizer**
+- 🚗 **Android Auto** compatible
+- ⏰ **Programmable sleep timer**
+- 📤 **Import via sharing** from YouTube Music
+
+</td>
+</tr>
+</table>
+
+</div>
+
+### 📥 **Installation** (English)
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+#### 📱 **End Users**
+1. **Download** APK from [GitHub Releases](https://github.com/AveryMist/AMADEUSE-MUSIC/releases/latest)
+2. **Allow** external app installation on Android
+3. **Install** and **enjoy** your music!
+
+⚠️ **Important:** Choose one download source for automatic updates.
+
+</td>
+<td align="center" width="50%">
+
+#### 💻 **Developers**
+```bash
+# Clone the project
+git clone https://github.com/AveryMist/AMADEUSE-MUSIC.git
+
+# Install dependencies
+flutter pub get
+
+# Run the application
+flutter run
+```
+
+</td>
+</tr>
+</table>
+
+</div>
+
+### 🤝 **Contributing** (English)
+
+We warmly welcome contributions from the international community!
+
+- 🐛 **Bug reports** - Report encountered issues
+- ✨ **Feature suggestions** - Propose your ideas
+- 🌐 **Translations** - Help us improve international versions
+- 🔧 **Code contributions** - Participate in development
+
+### 🛠️ **Development Environment Setup**
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="33%">
+
+#### 🎯 **Prerequisites**
+- Flutter SDK (latest stable)
+- Dart SDK (included with Flutter)
+- Android Studio / VS Code
+- Git for version control
+
+</td>
+<td align="center" width="33%">
+
+#### ⚙️ **Build Commands**
+```bash
+# Android Release
+flutter build apk --release
+
+# Windows Release
+flutter build windows --release
+
+# Linux Release
+flutter build linux --release
+```
+
+</td>
+<td align="center" width="33%">
+
+#### 🧪 **Testing**
+```bash
+# Run tests
+flutter test
+
+# Integration tests
+flutter test integration_test/
+
+# Code coverage
+flutter test --coverage
+```
+
+</td>
+</tr>
+</table>
+
+</div>
+
+### 📊 **Project Statistics** (English)
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://img.shields.io/github/languages/count/AveryMist/AMADEUSE-MUSIC?style=for-the-badge&color=FF6B6B" alt="Languages"/>
+<br/><b>Programming Languages</b>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/github/languages/top/AveryMist/AMADEUSE-MUSIC?style=for-the-badge&color=4CAF50" alt="Top Language"/>
+<br/><b>Primary Language</b>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/github/repo-size/AveryMist/AMADEUSE-MUSIC?style=for-the-badge&color=FF9800" alt="Size"/>
+<br/><b>Repository Size</b>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/github/last-commit/AveryMist/AMADEUSE-MUSIC?style=for-the-badge&color=9C27B0" alt="Last Commit"/>
+<br/><b>Last Updated</b>
+</td>
+</tr>
+</table>
+
+</div>
+
+### 📞 **English Support**
+
+<div align="center">
+
+<a href="https://discord.gg/GEZCQwczMY">
+<img src="https://img.shields.io/badge/Discord_EN-International_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord EN"/>
+</a>
+
+**Join our Discord community for English support!**
+
+</div>
+
+---
+
 ## ⚠️ **Disclaimer**
 
 ```

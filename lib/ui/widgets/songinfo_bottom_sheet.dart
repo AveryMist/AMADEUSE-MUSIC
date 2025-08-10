@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../themes/modern_button_theme.dart';
 
 import '../../services/downloader.dart';
 import '../screens/Playlist/playlist_screen_controller.dart';
@@ -77,17 +78,17 @@ class SongInfoBottomSheet extends StatelessWidget {
                                   .titleMedium!
                                   .color,
                             ))
-                        : IconButton(
+                        : Obx(() => ModernButtonTheme.modernIconButton(
+                            context: context,
                             onPressed: songInfoController.toggleFav,
-                            icon: Obx(() => Icon(
-                                  songInfoController.isCurrentSongFav.isFalse
-                                      ? Icons.favorite_border
-                                      : Icons.favorite,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium!
-                                      .color,
-                                ))),
+                            icon: songInfoController.isCurrentSongFav.isFalse
+                                ? Icons.favorite_border
+                                : Icons.favorite,
+                            color: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .color,
+                          )),
                     SongDownloadButton(
                       song_: song,
                       isDownloadingDoneCallback:

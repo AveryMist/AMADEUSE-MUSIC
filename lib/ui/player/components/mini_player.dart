@@ -9,6 +9,7 @@ import '/ui/widgets/lyrics_dialog.dart';
 import '/ui/widgets/song_info_dialog.dart';
 import '/ui/player/player_controller.dart';
 import '/ui/themes/modern_button_theme.dart';
+import '/ui/navigator.dart';
 import '../../widgets/add_to_playlist.dart';
 import '../../widgets/sleep_timer_bottom_sheet.dart';
 import '../../widgets/song_download_btn.dart';
@@ -145,16 +146,35 @@ class MiniPlayer extends StatelessWidget {
                                       id: "${playerController.currentSong.value}_mini",
                                       delay: const Duration(milliseconds: 300),
                                       duration: const Duration(seconds: 5),
-                                      child: Text(
-                                        playerController.currentSong.value !=
-                                                null
-                                            ? playerController
-                                                .currentSong.value!.artist!
-                                            : "",
-                                        maxLines: 1,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleSmall,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          final song = playerController.currentSong.value;
+                                          if (song != null &&
+                                              song.extras != null &&
+                                              song.extras!['artists'] != null) {
+                                            final artists = song.extras!['artists'];
+                                            if (artists.isNotEmpty && artists[0]['id'] != null) {
+                                              // Fermer/minimiser le panneau du player avant navigation
+                                              playerController.playerPanelController.close();
+                                              Get.toNamed(
+                                                ScreenNavigationSetup.artistScreen,
+                                                id: ScreenNavigationSetup.id,
+                                                arguments: [true, artists[0]['id']],
+                                              );
+                                            }
+                                          }
+                                        },
+                                        child: Text(
+                                          playerController.currentSong.value !=
+                                                  null
+                                              ? playerController
+                                                  .currentSong.value!.artist!
+                                              : "",
+                                          maxLines: 1,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleSmall,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -210,77 +230,77 @@ class MiniPlayer extends StatelessWidget {
                                 Expanded(
                                   child: SizedBox(
                                     height: 70,
-                                    child: Align(
-                                      alignment: Alignment.bottomLeft,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 8, bottom: 6),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment: CrossAxisAlignment.end,
-                                          children: [
-                                            SizedBox(
-                                              width: 44,
-                                              child: ModernButtonTheme.modernIconButton(
-                                                icon: Icons.skip_previous,
-                                                onPressed: (playerController.currentQueue.isEmpty ||
-                                                        (playerController.currentQueue.first.id ==
-                                                            playerController.currentSong.value?.id))
-                                                    ? null
-                                                    : playerController.prev,
-                                                context: context,
-                                                color: Theme.of(context).textTheme.titleMedium!.color,
-                                                tooltip: 'Précédent',
-                                                size: 28,
-                                              ),
+                                    child: Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.topLeft,
+                                          child: SizedBox(
+                                            width: 40,
+                                            child: ModernButtonTheme.modernIconButton(
+                                              icon: Icons.skip_previous,
+                                              onPressed: (playerController.currentQueue.isEmpty ||
+                                                      (playerController.currentQueue.first.id ==
+                                                          playerController.currentSong.value?.id))
+                                                  ? null
+                                                  : playerController.prev,
+                                              context: context,
+                                              color: Theme.of(context).textTheme.titleMedium!.color,
+                                              tooltip: 'Précédent',
+                                              size: 30,
                                             ),
-                                            const SizedBox(width: 12),
-                                            (isWideScreen && !bottomNavEnabled)
-                                                ? ModernButtonTheme.modernPlayButton(
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: Alignment.center,
+                                          child: (isWideScreen && !bottomNavEnabled)
+                                              ? ModernButtonTheme.modernPlayButton(
+                                                  child: AnimatedPlayButton(
+                                                    iconSize: isWideScreen ? 38 : 30,
+                                                  ),
+                                                  onPressed: null,
+                                                  context: context,
+                                                  size: 50,
+                                                )
+                                              : SizedBox.square(
+                                                  dimension: 45,
+                                                  child: ModernButtonTheme.modernPlayButton(
                                                     child: AnimatedPlayButton(
                                                       iconSize: isWideScreen ? 38 : 30,
                                                     ),
                                                     onPressed: null,
                                                     context: context,
-                                                    size: 48,
-                                                  )
-                                                : SizedBox.square(
-                                                    dimension: 44,
-                                                    child: ModernButtonTheme.modernPlayButton(
-                                                      child: AnimatedPlayButton(
-                                                        iconSize: isWideScreen ? 36 : 28,
-                                                      ),
-                                                      onPressed: null,
-                                                      context: context,
-                                                      size: 44,
-                                                    )),
-                                            const SizedBox(width: 12),
-                                            SizedBox(
-                                              width: 44,
-                                              child: Obx(() {
-                                                final isLastSong = playerController.currentQueue.isEmpty ||
-                                                    (!(playerController.isShuffleModeEnabled.isTrue ||
-                                                            playerController.isQueueLoopModeEnabled.isTrue) &&
-                                                        (playerController.currentQueue.last.id ==
-                                                            playerController.currentSong.value?.id));
-                                                return ModernButtonTheme.modernIconButton(
-                                                  icon: Icons.skip_next,
-                                                  onPressed: isLastSong ? null : playerController.next,
-                                                  context: context,
-                                                  color: isLastSong
-                                                      ? Theme.of(context)
-                                                          .textTheme
-                                                          .titleLarge!
-                                                          .color!
-                                                          .withValues(alpha: 0.3)
-                                                      : Theme.of(context).textTheme.titleMedium!.color,
-                                                  tooltip: 'Suivant',
-                                                  size: 28,
-                                                );
-                                              }),
-                                            ),
-                                          ],
+                                                    size: 45,
+                                                  )),
                                         ),
-                                      ),
+                                        Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: SizedBox(
+                                            width: 40,
+                                            child: Obx(() {
+                                              final isLastSong = playerController.currentQueue.isEmpty ||
+                                                  (!(playerController.isShuffleModeEnabled.isTrue ||
+                                                          playerController.isQueueLoopModeEnabled.isTrue) &&
+                                                      (playerController.currentQueue.last.id ==
+                                                          playerController.currentSong.value?.id));
+                                              return ModernButtonTheme.modernIconButton(
+                                                icon: Icons.skip_next,
+                                                onPressed: isLastSong ? null : playerController.next,
+                                                context: context,
+                                                color: isLastSong
+                                                    ? Theme.of(context)
+                                                        .textTheme
+                                                        .titleLarge!
+                                                        .color!
+                                                        .withValues(alpha: 0.3)
+                                                    : Theme.of(context).textTheme.titleMedium!.color,
+                                                tooltip: 'Suivant',
+                                                size: 30,
+                                              );
+                                            }),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -397,7 +417,11 @@ class MiniPlayer extends StatelessWidget {
                                       children: [
                                         // Groupe des boutons principaux avec espacement amélioré
                                         Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(8),
+                                            color: Theme.of(context).colorScheme.surface.withOpacity(0.1),
+                                          ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
@@ -421,14 +445,16 @@ class MiniPlayer extends StatelessWidget {
                                                     );
                                                   },
                                                   context: context,
-                                                  color: Theme.of(context).textTheme.titleMedium!.color,
+                                                  color: playerController.isSleepTimerActive.isTrue
+                                                      ? Theme.of(context).colorScheme.primary
+                                                      : Theme.of(context).textTheme.titleMedium!.color,
                                                   tooltip: 'Minuteur de veille',
-                                                  size: 22,
+                                                  size: 20,
                                                 ),
                                               if (size.width > 860)
-                                                const SizedBox(width: 8),
+                                                const SizedBox(width: 6),
                                               const SongDownloadButton(calledFromPlayer: true),
-                                              const SizedBox(width: 8),
+                                              const SizedBox(width: 6),
                                               ModernButtonTheme.modernIconButton(
                                                 icon: Icons.playlist_add,
                                                 onPressed: () {
@@ -443,12 +469,12 @@ class MiniPlayer extends StatelessWidget {
                                                 context: context,
                                                 color: Theme.of(context).textTheme.titleMedium!.color,
                                                 tooltip: 'Ajouter à une playlist',
-                                                size: 22,
+                                                size: 20,
                                               ),
-                                              if (size.width > 965) const SizedBox(width: 8),
+                                              if (size.width > 965) const SizedBox(width: 6),
                                               if (size.width > 965)
                                                 ModernButtonTheme.modernIconButton(
-                                                  icon: Icons.info,
+                                                  icon: Icons.info_outline,
                                                   onPressed: () {
                                                     final currentSong = playerController.currentSong.value;
                                                     if (currentSong != null) {
@@ -461,22 +487,31 @@ class MiniPlayer extends StatelessWidget {
                                                   context: context,
                                                   color: Theme.of(context).textTheme.titleMedium!.color,
                                                   tooltip: 'Informations sur la chanson',
-                                                  size: 22,
+                                                  size: 20,
                                                 ),
                                             ],
                                           ),
                                         ),
-                                        const SizedBox(width: 12),
-                                        // Bouton de file d'attente séparé
-                                        ModernButtonTheme.modernIconButton(
-                                          icon: Icons.queue_music,
-                                          onPressed: () {
-                                            playerController.homeScaffoldkey.currentState!.openEndDrawer();
-                                          },
-                                          context: context,
-                                          color: Theme.of(context).textTheme.titleMedium!.color,
-                                          tooltip: 'File d\'attente',
-                                          size: 22,
+                                        const SizedBox(width: 8),
+                                        // Bouton de file d'attente séparé avec indicateur visuel
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(6),
+                                            border: Border.all(
+                                              color: Theme.of(context).colorScheme.outline.withOpacity(0.3),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          child: ModernButtonTheme.modernIconButton(
+                                            icon: Icons.queue_music,
+                                            onPressed: () {
+                                              playerController.homeScaffoldkey.currentState!.openEndDrawer();
+                                            },
+                                            context: context,
+                                            color: Theme.of(context).textTheme.titleMedium!.color,
+                                            tooltip: 'File d\'attente (${playerController.currentQueue.length} chansons)',
+                                            size: 20,
+                                          ),
                                         ),
                                       ],
                                     ),

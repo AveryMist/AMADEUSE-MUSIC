@@ -54,6 +54,9 @@ class CombinedLibrary extends StatelessWidget {
           isScrollable: true,
           splashFactory: NoSplash.splashFactory,
           controller: tabCon.tabController,
+          labelPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+          labelStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          unselectedLabelStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
           tabs: [
             Tab(text: "songs".tr),
             Tab(text: "playlists".tr),

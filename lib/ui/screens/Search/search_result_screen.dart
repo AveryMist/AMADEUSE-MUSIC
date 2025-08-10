@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '/ui/screens/Search/search_result_screen_v2.dart';
 import '/ui/screens/Settings/settings_screen_controller.dart';
 import '../../navigator.dart';
+import '../../themes/modern_button_theme.dart';
 import '../../widgets/animated_screen_transition.dart';
 import '../../widgets/loader.dart';
 import '../../widgets/search_related_widgets.dart';
@@ -49,19 +50,20 @@ class SearchResultScreen extends StatelessWidget {
                               SizedBox(
                                 height: context.isLandscape ? 20 : 45,
                               ),
-                              IconButton(
-                                icon: Icon(
-                                  Icons.arrow_back_ios_new,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium!
-                                      .color,
-                                ),
+                              ModernButtonTheme.modernIconButton(
+                                context: context,
+                                icon: Icons.arrow_back_ios_new,
+                                iconSize: 24,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .color,
                                 onPressed: () {
                                   Get.nestedKey(ScreenNavigationSetup.id)!
                                       .currentState!
                                       .pop();
                                 },
+                                tooltip: "Retour",
                               ),
                               const SizedBox(
                                 height: 10,

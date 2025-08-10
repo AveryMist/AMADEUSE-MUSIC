@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:harmonymusic/ui/player/player_controller.dart';
+import '../../themes/modern_button_theme.dart';
 
 import '../../widgets/loader.dart';
 
@@ -49,12 +50,13 @@ class _AnimatedPlayButtonState extends State<AnimatedPlayButton>
         _controller.reverse();
       }
 
-      return IconButton(
+      return ModernButtonTheme.modernPlayButton(
+        context: context,
         iconSize: widget.iconSize,
         onPressed: () {
           isPlaying ? controller.pause() : controller.play();
         },
-        icon: isLoading
+        child: isLoading
             ? const LoadingIndicator(
                 dimension: 20,
               )

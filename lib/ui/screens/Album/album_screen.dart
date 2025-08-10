@@ -131,6 +131,8 @@ class AlbumScreen extends StatelessWidget {
                           width: 50,
                           child: IconButton(
                               tooltip: "back".tr,
+                              splashRadius: 20,
+                              visualDensity: const VisualDensity(horizontal: -1),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
@@ -194,7 +196,8 @@ class AlbumScreen extends StatelessWidget {
                                                       .isAddedToLibrary.isFalse
                                                   ? "addToLibrary".tr
                                                   : "removeFromLibrary".tr,
-                                              splashRadius: 10,
+                                              splashRadius: 12,
+                                              visualDensity: const VisualDensity(horizontal: -1),
                                               onPressed: () {
                                                 final add = albumController
                                                     .isAddedToLibrary.isFalse;
@@ -228,6 +231,8 @@ class AlbumScreen extends StatelessWidget {
                                           // Play button
                                           IconButton(
                                             tooltip: "play".tr,
+                                              splashRadius: 12,
+                                              visualDensity: const VisualDensity(horizontal: -1),
                                               onPressed: () {
                                                 playerController
                                                     .playPlayListSong(
@@ -255,6 +260,8 @@ class AlbumScreen extends StatelessWidget {
                                           // Enqueue button
                                           IconButton(
                                             tooltip: "enqueueAlbumSongs".tr,
+                                              splashRadius: 12,
+                                              visualDensity: const VisualDensity(horizontal: -1),
                                               onPressed: () {
                                                 Get.find<PlayerController>()
                                                     .enqueueSongList(
@@ -288,6 +295,8 @@ class AlbumScreen extends StatelessWidget {
                                                 .album.value.browseId;
                                             return IconButton(
                                               tooltip: "downloadAlbumSongs".tr,
+                                              splashRadius: 12,
+                                              visualDensity: const VisualDensity(horizontal: -1),
                                               onPressed: () {
                                                 if (albumController
                                                     .isDownloaded.isTrue) {
@@ -366,8 +375,8 @@ class AlbumScreen extends StatelessWidget {
                                             tooltip: "shareAlbum".tr,
                                               visualDensity:
                                                   const VisualDensity(
-                                                      vertical: -3),
-                                              splashRadius: 10,
+                                                      horizontal: -1, vertical: -2),
+                                              splashRadius: 12,
                                               onPressed: () {
                                                 Share.share(
                                                     "https://youtube.com/playlist?list=${albumController.album.value.audioPlaylistId}");

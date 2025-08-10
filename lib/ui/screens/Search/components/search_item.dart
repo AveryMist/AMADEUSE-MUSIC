@@ -36,9 +36,9 @@ class SearchItem extends StatelessWidget {
           children: [
             isHistoryString
                 ? IconButton(
-                    iconSize: 18,
-                    splashRadius: 18,
-                    visualDensity: const VisualDensity(horizontal: -2),
+                    iconSize: 22,
+                    splashRadius: 20,
+                    visualDensity: const VisualDensity(horizontal: -1),
                     onPressed: () {
                       searchScreenController
                           .removeQueryFromHistory(queryString);
@@ -52,9 +52,9 @@ class SearchItem extends StatelessWidget {
                     width: 40,
                   ),
             IconButton(
-              iconSize: 20,
-              splashRadius: 18,
-              visualDensity: const VisualDensity(horizontal: -2),
+              iconSize: 22,
+              splashRadius: 20,
+              visualDensity: const VisualDensity(horizontal: -1),
               onPressed: () {
                 searchScreenController.suggestionInput(queryString);
               },
