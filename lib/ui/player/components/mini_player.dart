@@ -324,11 +324,10 @@ class MiniPlayer extends StatelessWidget {
                                 if (isWideScreen && !bottomNavEnabled)
                                   const SizedBox(
                                     width: 20,
-                                  )
+                                  ),
                               ],
                             ),
                           ),
-                        ),
                         ),
                         if (isWideScreen && !bottomNavEnabled)
                           Expanded(
